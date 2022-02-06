@@ -30,7 +30,7 @@ class NetworkManager
         
     }
     
-    func saveScoringSummary(forGameId gameId: Int)
+    func saveScoringSummaryByGameId(_ gameId: Int)
     {
         
     }
@@ -40,7 +40,7 @@ class NetworkManager
         
     }
     
-    func updateScheduleForDate(_ date :Date)
+    func updateSchedule(for date :Date)
     {
         shortDateFormatter.dateFormat = Constants.SHORT_DATE_FORMAT
     }
