@@ -23,18 +23,7 @@ struct LeagueTeamView: View
                     {
                         team in
                     
-                        NavigationLink(destination: Text(team.city + " " + team.name))
-                        {
-                            HStack
-                            {
-                                Image(team.abbreviation)
-                                    .resizable()
-                                    .frame(width: 40, height: 30)
-                                    .scaledToFit()
-                                Text(team.city + " " + team.name)
-                                
-                            }
-                        }
+                        TeamNavLinkView(team: team)
                     }
 
                 }.listStyle(.plain)
