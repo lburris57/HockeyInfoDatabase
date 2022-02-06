@@ -8,17 +8,47 @@
 
 /* Begin PBXBuildFile section */
 		91B4523727AF836300FF43A6 /* HockeyInfoDatabaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4523627AF836300FF43A6 /* HockeyInfoDatabaseApp.swift */; };
-		91B4523927AF836300FF43A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4523827AF836300FF43A6 /* ContentView.swift */; };
 		91B4523B27AF836600FF43A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B4523A27AF836600FF43A6 /* Assets.xcassets */; };
 		91B4523E27AF836600FF43A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B4523D27AF836600FF43A6 /* Preview Assets.xcassets */; };
+		91B4524527AF839100FF43A6 /* ViewModels in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524427AF839100FF43A6 /* ViewModels */; };
+		91B4524727AF83B000FF43A6 /* Extensions in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524627AF83B000FF43A6 /* Extensions */; };
+		91B4524927AF83BE00FF43A6 /* Utils in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524827AF83BE00FF43A6 /* Utils */; };
+		91B4524B27AF83CF00FF43A6 /* Error Enums in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524A27AF83CF00FF43A6 /* Error Enums */; };
+		91B4524D27AF83DD00FF43A6 /* Enums in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524C27AF83DD00FF43A6 /* Enums */; };
+		91B4524F27AF83E900FF43A6 /* Database Models in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524E27AF83E900FF43A6 /* Database Models */; };
+		91B4525127AF840000FF43A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4525027AF840000FF43A6 /* Constants.swift */; };
+		91B4525427AF841C00FF43A6 /* NeumorphicButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4525327AF841C00FF43A6 /* NeumorphicButtonStyle.swift */; };
+		91B4525627AF845D00FF43A6 /* Views in Resources */ = {isa = PBXBuildFile; fileRef = 91B4525527AF845D00FF43A6 /* Views */; };
+		91B4525827AF84D100FF43A6 /* Managers in Resources */ = {isa = PBXBuildFile; fileRef = 91B4525727AF84D100FF43A6 /* Managers */; };
+		91B4525A27AF84DC00FF43A6 /* Logging in Resources */ = {isa = PBXBuildFile; fileRef = 91B4525927AF84DC00FF43A6 /* Logging */; };
+		91B4525C27AF854B00FF43A6 /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 91B4525B27AF854B00FF43A6 /* Models */; };
+		91B4525F27AF868800FF43A6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 91B4525E27AF868800FF43A6 /* Realm */; };
+		91B4526127AF868800FF43A6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 91B4526027AF868800FF43A6 /* RealmSwift */; };
+		91B4526527AF880100FF43A6 /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4526427AF880100FF43A6 /* ScoresView.swift */; };
+		91B4526927AF88CA00FF43A6 /* PeriodEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4526827AF88CA00FF43A6 /* PeriodEnum.swift */; };
+		91B4526B27AF88E600FF43A6 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4526A27AF88E600FF43A6 /* ScheduleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		91B4523327AF836300FF43A6 /* HockeyInfoDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HockeyInfoDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B4523627AF836300FF43A6 /* HockeyInfoDatabaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyInfoDatabaseApp.swift; sourceTree = "<group>"; };
-		91B4523827AF836300FF43A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		91B4523A27AF836600FF43A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91B4523D27AF836600FF43A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		91B4524427AF839100FF43A6 /* ViewModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewModels; sourceTree = "<group>"; };
+		91B4524627AF83B000FF43A6 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Extensions; sourceTree = "<group>"; };
+		91B4524827AF83BE00FF43A6 /* Utils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utils; sourceTree = "<group>"; };
+		91B4524A27AF83CF00FF43A6 /* Error Enums */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Error Enums"; sourceTree = "<group>"; };
+		91B4524C27AF83DD00FF43A6 /* Enums */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Enums; sourceTree = "<group>"; };
+		91B4524E27AF83E900FF43A6 /* Database Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Database Models"; sourceTree = "<group>"; };
+		91B4525027AF840000FF43A6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		91B4525327AF841C00FF43A6 /* NeumorphicButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeumorphicButtonStyle.swift; sourceTree = "<group>"; };
+		91B4525527AF845D00FF43A6 /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
+		91B4525727AF84D100FF43A6 /* Managers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Managers; sourceTree = "<group>"; };
+		91B4525927AF84DC00FF43A6 /* Logging */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Logging; sourceTree = "<group>"; };
+		91B4525B27AF854B00FF43A6 /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
+		91B4526427AF880100FF43A6 /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
+		91B4526827AF88CA00FF43A6 /* PeriodEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodEnum.swift; sourceTree = "<group>"; };
+		91B4526A27AF88E600FF43A6 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91B4526127AF868800FF43A6 /* RealmSwift in Frameworks */,
+				91B4525F27AF868800FF43A6 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,7 +84,21 @@
 			isa = PBXGroup;
 			children = (
 				91B4523627AF836300FF43A6 /* HockeyInfoDatabaseApp.swift */,
-				91B4523827AF836300FF43A6 /* ContentView.swift */,
+				91B4525027AF840000FF43A6 /* Constants.swift */,
+				91B4526427AF880100FF43A6 /* ScoresView.swift */,
+				91B4526827AF88CA00FF43A6 /* PeriodEnum.swift */,
+				91B4526A27AF88E600FF43A6 /* ScheduleView.swift */,
+				91B4525327AF841C00FF43A6 /* NeumorphicButtonStyle.swift */,
+				91B4525B27AF854B00FF43A6 /* Models */,
+				91B4525927AF84DC00FF43A6 /* Logging */,
+				91B4525727AF84D100FF43A6 /* Managers */,
+				91B4525527AF845D00FF43A6 /* Views */,
+				91B4524E27AF83E900FF43A6 /* Database Models */,
+				91B4524C27AF83DD00FF43A6 /* Enums */,
+				91B4524A27AF83CF00FF43A6 /* Error Enums */,
+				91B4524827AF83BE00FF43A6 /* Utils */,
+				91B4524627AF83B000FF43A6 /* Extensions */,
+				91B4524427AF839100FF43A6 /* ViewModels */,
 				91B4523A27AF836600FF43A6 /* Assets.xcassets */,
 				91B4523C27AF836600FF43A6 /* Preview Content */,
 			);
@@ -83,6 +129,10 @@
 			dependencies = (
 			);
 			name = HockeyInfoDatabase;
+			packageProductDependencies = (
+				91B4525E27AF868800FF43A6 /* Realm */,
+				91B4526027AF868800FF43A6 /* RealmSwift */,
+			);
 			productName = HockeyInfoDatabase;
 			productReference = 91B4523327AF836300FF43A6 /* HockeyInfoDatabase.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +161,9 @@
 				Base,
 			);
 			mainGroup = 91B4522A27AF836300FF43A6;
+			packageReferences = (
+				91B4525D27AF868800FF43A6 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 91B4523427AF836300FF43A6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,8 +178,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91B4525627AF845D00FF43A6 /* Views in Resources */,
+				91B4524F27AF83E900FF43A6 /* Database Models in Resources */,
+				91B4524D27AF83DD00FF43A6 /* Enums in Resources */,
 				91B4523E27AF836600FF43A6 /* Preview Assets.xcassets in Resources */,
+				91B4524B27AF83CF00FF43A6 /* Error Enums in Resources */,
 				91B4523B27AF836600FF43A6 /* Assets.xcassets in Resources */,
+				91B4525C27AF854B00FF43A6 /* Models in Resources */,
+				91B4525827AF84D100FF43A6 /* Managers in Resources */,
+				91B4525A27AF84DC00FF43A6 /* Logging in Resources */,
+				91B4524927AF83BE00FF43A6 /* Utils in Resources */,
+				91B4524727AF83B000FF43A6 /* Extensions in Resources */,
+				91B4524527AF839100FF43A6 /* ViewModels in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +200,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91B4523927AF836300FF43A6 /* ContentView.swift in Sources */,
+				91B4526927AF88CA00FF43A6 /* PeriodEnum.swift in Sources */,
+				91B4525427AF841C00FF43A6 /* NeumorphicButtonStyle.swift in Sources */,
+				91B4526527AF880100FF43A6 /* ScoresView.swift in Sources */,
 				91B4523727AF836300FF43A6 /* HockeyInfoDatabaseApp.swift in Sources */,
+				91B4525127AF840000FF43A6 /* Constants.swift in Sources */,
+				91B4526B27AF88E600FF43A6 /* ScheduleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +408,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		91B4525D27AF868800FF43A6 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.19.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		91B4525E27AF868800FF43A6 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91B4525D27AF868800FF43A6 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		91B4526027AF868800FF43A6 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91B4525D27AF868800FF43A6 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 91B4522B27AF836300FF43A6 /* Project object */;
 }
