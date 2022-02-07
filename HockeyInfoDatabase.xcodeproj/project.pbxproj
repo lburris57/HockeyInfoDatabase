@@ -10,25 +10,14 @@
 		91B4523727AF836300FF43A6 /* HockeyInfoDatabaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4523627AF836300FF43A6 /* HockeyInfoDatabaseApp.swift */; };
 		91B4523B27AF836600FF43A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B4523A27AF836600FF43A6 /* Assets.xcassets */; };
 		91B4523E27AF836600FF43A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B4523D27AF836600FF43A6 /* Preview Assets.xcassets */; };
-		91B4524527AF839100FF43A6 /* ViewModels in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524427AF839100FF43A6 /* ViewModels */; };
-		91B4524727AF83B000FF43A6 /* Extensions in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524627AF83B000FF43A6 /* Extensions */; };
-		91B4524927AF83BE00FF43A6 /* Utils in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524827AF83BE00FF43A6 /* Utils */; };
-		91B4524B27AF83CF00FF43A6 /* Error Enums in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524A27AF83CF00FF43A6 /* Error Enums */; };
-		91B4524D27AF83DD00FF43A6 /* Enums in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524C27AF83DD00FF43A6 /* Enums */; };
-		91B4524F27AF83E900FF43A6 /* Database Models in Resources */ = {isa = PBXBuildFile; fileRef = 91B4524E27AF83E900FF43A6 /* Database Models */; };
 		91B4525127AF840000FF43A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4525027AF840000FF43A6 /* Constants.swift */; };
 		91B4525427AF841C00FF43A6 /* NeumorphicButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4525327AF841C00FF43A6 /* NeumorphicButtonStyle.swift */; };
-		91B4525627AF845D00FF43A6 /* Views in Resources */ = {isa = PBXBuildFile; fileRef = 91B4525527AF845D00FF43A6 /* Views */; };
-		91B4525827AF84D100FF43A6 /* Managers in Resources */ = {isa = PBXBuildFile; fileRef = 91B4525727AF84D100FF43A6 /* Managers */; };
-		91B4525A27AF84DC00FF43A6 /* Logging in Resources */ = {isa = PBXBuildFile; fileRef = 91B4525927AF84DC00FF43A6 /* Logging */; };
-		91B4525C27AF854B00FF43A6 /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 91B4525B27AF854B00FF43A6 /* Models */; };
 		91B4525F27AF868800FF43A6 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 91B4525E27AF868800FF43A6 /* Realm */; };
 		91B4526127AF868800FF43A6 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 91B4526027AF868800FF43A6 /* RealmSwift */; };
 		91B4526527AF880100FF43A6 /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4526427AF880100FF43A6 /* ScoresView.swift */; };
 		91B4526927AF88CA00FF43A6 /* PeriodEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4526827AF88CA00FF43A6 /* PeriodEnum.swift */; };
 		91B4526B27AF88E600FF43A6 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4526A27AF88E600FF43A6 /* ScheduleView.swift */; };
 		91B4526D27AF8F3800FF43A6 /* DivisionTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4526C27AF8F3800FF43A6 /* DivisionTeamView.swift */; };
-		91B4526F27AF910100FF43A6 /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4526E27AF910100FF43A6 /* TeamViewModel.swift */; };
 		91B4527127AF912B00FF43A6 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4527027AF912B00FF43A6 /* Team.swift */; };
 		91B4527327AFA4E700FF43A6 /* TeamTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4527227AFA4E700FF43A6 /* TeamTabView.swift */; };
 		91B4527527AFA79F00FF43A6 /* ConferenceTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4527427AFA79F00FF43A6 /* ConferenceTeamView.swift */; };
@@ -37,6 +26,38 @@
 		91B4527B27AFE06300FF43A6 /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 91B4527A27AFE06300FF43A6 /* AppIcon.appiconset */; };
 		91B4527D27AFE44C00FF43A6 /* GameBoxScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4527C27AFE44C00FF43A6 /* GameBoxScore.swift */; };
 		91B4527F27AFE7F300FF43A6 /* SeasonStanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4527E27AFE7F300FF43A6 /* SeasonStanding.swift */; };
+		91B4528127B0ABD200FF43A6 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4528027B0ABD200FF43A6 /* APIService.swift */; };
+		91B4528F27B0CEB100FF43A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4528E27B0CEB100FF43A6 /* ContentView.swift */; };
+		91B4529127B0CEB800FF43A6 /* ScheduledGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4529027B0CEB800FF43A6 /* ScheduledGame.swift */; };
+		91B4529327B0CEBB00FF43A6 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4529227B0CEBB00FF43A6 /* Season.swift */; };
+		91B4529727B0CECA00FF43A6 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4529627B0CECA00FF43A6 /* Venue.swift */; };
+		91B4529B27B0CEF300FF43A6 /* MainMenuCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4529A27B0CEF300FF43A6 /* MainMenuCategory.swift */; };
+		91B4529F27B0CF0200FF43A6 /* NHLGameLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4529E27B0CF0200FF43A6 /* NHLGameLog.swift */; };
+		91B452A127B0CF0900FF43A6 /* NHLPeriodScoringData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452A027B0CF0900FF43A6 /* NHLPeriodScoringData.swift */; };
+		91B452A327B0CF0F00FF43A6 /* NHLPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452A227B0CF0F00FF43A6 /* NHLPlayer.swift */; };
+		91B452A527B0CF1300FF43A6 /* NHLPlayerInjury.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452A427B0CF1300FF43A6 /* NHLPlayerInjury.swift */; };
+		91B452A727B0CF1800FF43A6 /* NHLScheduledGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452A627B0CF1800FF43A6 /* NHLScheduledGame.swift */; };
+		91B452A927B0CF1C00FF43A6 /* NHLScoringSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452A827B0CF1C00FF43A6 /* NHLScoringSummary.swift */; };
+		91B452AB27B0CF2000FF43A6 /* NHLTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452AA27B0CF2000FF43A6 /* NHLTeam.swift */; };
+		91B452AD27B0CF2500FF43A6 /* PlayerStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452AC27B0CF2500FF43A6 /* PlayerStatistics.swift */; };
+		91B452AF27B0CF2A00FF43A6 /* SeasonScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452AE27B0CF2A00FF43A6 /* SeasonScheduleViewModel.swift */; };
+		91B452B127B0CF3700FF43A6 /* TeamStandings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452B027B0CF3700FF43A6 /* TeamStandings.swift */; };
+		91B452B327B0CF3C00FF43A6 /* TeamStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452B227B0CF3C00FF43A6 /* TeamStatistics.swift */; };
+		91B452B927B0CF4F00FF43A6 /* PositionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452B427B0CF4E00FF43A6 /* PositionEnum.swift */; };
+		91B452BA27B0CF4F00FF43A6 /* PlayedStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452B527B0CF4E00FF43A6 /* PlayedStatusEnum.swift */; };
+		91B452BD27B0CF4F00FF43A6 /* PlayingProbabilityEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452B827B0CF4E00FF43A6 /* PlayingProbabilityEnum.swift */; };
+		91B452C527B0CF6A00FF43A6 /* ConversionUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452C327B0CF6A00FF43A6 /* ConversionUtils.swift */; };
+		91B452D227B1037B00FF43A6 /* DataConversionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452D127B1037B00FF43A6 /* DataConversionHelper.swift */; };
+		91B452D527B16A3600FF43A6 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452D427B16A3600FF43A6 /* DatabaseManager.swift */; };
+		91B452D627B16A3600FF43A6 /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452D327B16A3600FF43A6 /* TeamManager.swift */; };
+		91B452D927B16A7000FF43A6 /* DatabaseErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452D827B16A7000FF43A6 /* DatabaseErrorEnum.swift */; };
+		91B452DA27B16A7000FF43A6 /* NetworkErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452D727B16A7000FF43A6 /* NetworkErrorEnum.swift */; };
+		91B452DC27B16A7900FF43A6 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452DB27B16A7900FF43A6 /* Log.swift */; };
+		91B452DF27B16A8900FF43A6 /* ConferenceEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452DD27B16A8900FF43A6 /* ConferenceEnum.swift */; };
+		91B452E027B16A8900FF43A6 /* DivisionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452DE27B16A8900FF43A6 /* DivisionEnum.swift */; };
+		91B452E227B16A9400FF43A6 /* TimeAndDateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452E127B16A9400FF43A6 /* TimeAndDateUtils.swift */; };
+		91B452E627B16AB400FF43A6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452E527B16AB400FF43A6 /* Extensions.swift */; };
+		91B452FB27B1720600FF43A6 /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B452FA27B1720600FF43A6 /* TeamViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,23 +65,12 @@
 		91B4523627AF836300FF43A6 /* HockeyInfoDatabaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HockeyInfoDatabaseApp.swift; sourceTree = "<group>"; };
 		91B4523A27AF836600FF43A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		91B4523D27AF836600FF43A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		91B4524427AF839100FF43A6 /* ViewModels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ViewModels; sourceTree = "<group>"; };
-		91B4524627AF83B000FF43A6 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Extensions; sourceTree = "<group>"; };
-		91B4524827AF83BE00FF43A6 /* Utils */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utils; sourceTree = "<group>"; };
-		91B4524A27AF83CF00FF43A6 /* Error Enums */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Error Enums"; sourceTree = "<group>"; };
-		91B4524C27AF83DD00FF43A6 /* Enums */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Enums; sourceTree = "<group>"; };
-		91B4524E27AF83E900FF43A6 /* Database Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Database Models"; sourceTree = "<group>"; };
 		91B4525027AF840000FF43A6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		91B4525327AF841C00FF43A6 /* NeumorphicButtonStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeumorphicButtonStyle.swift; sourceTree = "<group>"; };
-		91B4525527AF845D00FF43A6 /* Views */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Views; sourceTree = "<group>"; };
-		91B4525727AF84D100FF43A6 /* Managers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Managers; sourceTree = "<group>"; };
-		91B4525927AF84DC00FF43A6 /* Logging */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Logging; sourceTree = "<group>"; };
-		91B4525B27AF854B00FF43A6 /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		91B4526427AF880100FF43A6 /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 		91B4526827AF88CA00FF43A6 /* PeriodEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodEnum.swift; sourceTree = "<group>"; };
 		91B4526A27AF88E600FF43A6 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		91B4526C27AF8F3800FF43A6 /* DivisionTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionTeamView.swift; sourceTree = "<group>"; };
-		91B4526E27AF910100FF43A6 /* TeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamViewModel.swift; path = ViewModels/TeamViewModel.swift; sourceTree = "<group>"; };
 		91B4527027AF912B00FF43A6 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		91B4527227AFA4E700FF43A6 /* TeamTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTabView.swift; sourceTree = "<group>"; };
 		91B4527427AFA79F00FF43A6 /* ConferenceTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceTeamView.swift; sourceTree = "<group>"; };
@@ -69,6 +79,38 @@
 		91B4527A27AFE06300FF43A6 /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		91B4527C27AFE44C00FF43A6 /* GameBoxScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoxScore.swift; sourceTree = "<group>"; };
 		91B4527E27AFE7F300FF43A6 /* SeasonStanding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonStanding.swift; sourceTree = "<group>"; };
+		91B4528027B0ABD200FF43A6 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		91B4528E27B0CEB100FF43A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		91B4529027B0CEB800FF43A6 /* ScheduledGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledGame.swift; sourceTree = "<group>"; };
+		91B4529227B0CEBB00FF43A6 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		91B4529627B0CECA00FF43A6 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		91B4529A27B0CEF300FF43A6 /* MainMenuCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCategory.swift; sourceTree = "<group>"; };
+		91B4529E27B0CF0200FF43A6 /* NHLGameLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHLGameLog.swift; sourceTree = "<group>"; };
+		91B452A027B0CF0900FF43A6 /* NHLPeriodScoringData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHLPeriodScoringData.swift; sourceTree = "<group>"; };
+		91B452A227B0CF0F00FF43A6 /* NHLPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHLPlayer.swift; sourceTree = "<group>"; };
+		91B452A427B0CF1300FF43A6 /* NHLPlayerInjury.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHLPlayerInjury.swift; sourceTree = "<group>"; };
+		91B452A627B0CF1800FF43A6 /* NHLScheduledGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHLScheduledGame.swift; sourceTree = "<group>"; };
+		91B452A827B0CF1C00FF43A6 /* NHLScoringSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHLScoringSummary.swift; sourceTree = "<group>"; };
+		91B452AA27B0CF2000FF43A6 /* NHLTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NHLTeam.swift; sourceTree = "<group>"; };
+		91B452AC27B0CF2500FF43A6 /* PlayerStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatistics.swift; sourceTree = "<group>"; };
+		91B452AE27B0CF2A00FF43A6 /* SeasonScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonScheduleViewModel.swift; sourceTree = "<group>"; };
+		91B452B027B0CF3700FF43A6 /* TeamStandings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStandings.swift; sourceTree = "<group>"; };
+		91B452B227B0CF3C00FF43A6 /* TeamStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStatistics.swift; sourceTree = "<group>"; };
+		91B452B427B0CF4E00FF43A6 /* PositionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionEnum.swift; sourceTree = "<group>"; };
+		91B452B527B0CF4E00FF43A6 /* PlayedStatusEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayedStatusEnum.swift; sourceTree = "<group>"; };
+		91B452B827B0CF4E00FF43A6 /* PlayingProbabilityEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingProbabilityEnum.swift; sourceTree = "<group>"; };
+		91B452C327B0CF6A00FF43A6 /* ConversionUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionUtils.swift; sourceTree = "<group>"; };
+		91B452D127B1037B00FF43A6 /* DataConversionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataConversionHelper.swift; sourceTree = "<group>"; };
+		91B452D327B16A3600FF43A6 /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
+		91B452D427B16A3600FF43A6 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		91B452D727B16A7000FF43A6 /* NetworkErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorEnum.swift; sourceTree = "<group>"; };
+		91B452D827B16A7000FF43A6 /* DatabaseErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseErrorEnum.swift; sourceTree = "<group>"; };
+		91B452DB27B16A7900FF43A6 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		91B452DD27B16A8900FF43A6 /* ConferenceEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceEnum.swift; sourceTree = "<group>"; };
+		91B452DE27B16A8900FF43A6 /* DivisionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivisionEnum.swift; sourceTree = "<group>"; };
+		91B452E127B16A9400FF43A6 /* TimeAndDateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAndDateUtils.swift; sourceTree = "<group>"; };
+		91B452E527B16AB400FF43A6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		91B452FA27B1720600FF43A6 /* TeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamViewModel.swift; path = ../../../HockeyDatabase/HockeyDatabase/ViewModels/TeamViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,33 +146,24 @@
 			isa = PBXGroup;
 			children = (
 				91B4523627AF836300FF43A6 /* HockeyInfoDatabaseApp.swift */,
-				91B4527827AFDB0F00FF43A6 /* TeamNavLinkView.swift */,
 				91B4525027AF840000FF43A6 /* Constants.swift */,
-				91B4526427AF880100FF43A6 /* ScoresView.swift */,
-				91B4527027AF912B00FF43A6 /* Team.swift */,
-				91B4526827AF88CA00FF43A6 /* PeriodEnum.swift */,
-				91B4527C27AFE44C00FF43A6 /* GameBoxScore.swift */,
-				91B4526E27AF910100FF43A6 /* TeamViewModel.swift */,
-				91B4526A27AF88E600FF43A6 /* ScheduleView.swift */,
-				91B4525327AF841C00FF43A6 /* NeumorphicButtonStyle.swift */,
-				91B4526C27AF8F3800FF43A6 /* DivisionTeamView.swift */,
-				91B4527427AFA79F00FF43A6 /* ConferenceTeamView.swift */,
-				91B4527627AFA9F600FF43A6 /* LeagueTeamView.swift */,
-				91B4527227AFA4E700FF43A6 /* TeamTabView.swift */,
-				91B4525B27AF854B00FF43A6 /* Models */,
-				91B4525927AF84DC00FF43A6 /* Logging */,
-				91B4525727AF84D100FF43A6 /* Managers */,
-				91B4525527AF845D00FF43A6 /* Views */,
-				91B4524E27AF83E900FF43A6 /* Database Models */,
-				91B4524C27AF83DD00FF43A6 /* Enums */,
-				91B4524A27AF83CF00FF43A6 /* Error Enums */,
-				91B4524827AF83BE00FF43A6 /* Utils */,
-				91B4524627AF83B000FF43A6 /* Extensions */,
-				91B4524427AF839100FF43A6 /* ViewModels */,
+				91B452ED27B16DF900FF43A6 /* Services */,
+				91B452EE27B16E4000FF43A6 /* Views */,
+				91B452EB27B16CFD00FF43A6 /* Helpers */,
+				91B452EF27B16EFF00FF43A6 /* Enums */,
+				91B452EC27B16D0D00FF43A6 /* ButtonStyles */,
+				91B452F027B16FE100FF43A6 /* Managers */,
+				91B452F127B1700D00FF43A6 /* Logs */,
+				91B452F227B1702B00FF43A6 /* Extensions */,
+				91B452F327B1707D00FF43A6 /* Models */,
+				91B452F427B1712A00FF43A6 /* DatabaseModels */,
+				91B452F527B1718E00FF43A6 /* ErrorEnums */,
+				91B452F627B171C400FF43A6 /* ViewModels */,
+				91B452FD27B1727200FF43A6 /* PresentationModels */,
+				91B452FC27B1723B00FF43A6 /* Utils */,
 				91B4523A27AF836600FF43A6 /* Assets.xcassets */,
 				91B4527A27AFE06300FF43A6 /* AppIcon.appiconset */,
 				91B4523C27AF836600FF43A6 /* Preview Content */,
-				91B4527E27AFE7F300FF43A6 /* SeasonStanding.swift */,
 			);
 			path = HockeyInfoDatabase;
 			sourceTree = "<group>";
@@ -141,6 +174,148 @@
 				91B4523D27AF836600FF43A6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		91B452EB27B16CFD00FF43A6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				91B452D127B1037B00FF43A6 /* DataConversionHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		91B452EC27B16D0D00FF43A6 /* ButtonStyles */ = {
+			isa = PBXGroup;
+			children = (
+				91B4525327AF841C00FF43A6 /* NeumorphicButtonStyle.swift */,
+			);
+			path = ButtonStyles;
+			sourceTree = "<group>";
+		};
+		91B452ED27B16DF900FF43A6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				91B4528027B0ABD200FF43A6 /* APIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		91B452EE27B16E4000FF43A6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				91B4526427AF880100FF43A6 /* ScoresView.swift */,
+				91B4526C27AF8F3800FF43A6 /* DivisionTeamView.swift */,
+				91B4527827AFDB0F00FF43A6 /* TeamNavLinkView.swift */,
+				91B4527427AFA79F00FF43A6 /* ConferenceTeamView.swift */,
+				91B4527627AFA9F600FF43A6 /* LeagueTeamView.swift */,
+				91B4528E27B0CEB100FF43A6 /* ContentView.swift */,
+				91B4527227AFA4E700FF43A6 /* TeamTabView.swift */,
+				91B4526A27AF88E600FF43A6 /* ScheduleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		91B452EF27B16EFF00FF43A6 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				91B4526827AF88CA00FF43A6 /* PeriodEnum.swift */,
+				91B452B527B0CF4E00FF43A6 /* PlayedStatusEnum.swift */,
+				91B452DD27B16A8900FF43A6 /* ConferenceEnum.swift */,
+				91B452B827B0CF4E00FF43A6 /* PlayingProbabilityEnum.swift */,
+				91B452DE27B16A8900FF43A6 /* DivisionEnum.swift */,
+				91B452B427B0CF4E00FF43A6 /* PositionEnum.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		91B452F027B16FE100FF43A6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				91B452D427B16A3600FF43A6 /* DatabaseManager.swift */,
+				91B452D327B16A3600FF43A6 /* TeamManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		91B452F127B1700D00FF43A6 /* Logs */ = {
+			isa = PBXGroup;
+			children = (
+				91B452DB27B16A7900FF43A6 /* Log.swift */,
+			);
+			path = Logs;
+			sourceTree = "<group>";
+		};
+		91B452F227B1702B00FF43A6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				91B452E527B16AB400FF43A6 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		91B452F327B1707D00FF43A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				91B4527E27AFE7F300FF43A6 /* SeasonStanding.swift */,
+				91B4529227B0CEBB00FF43A6 /* Season.swift */,
+				91B4527C27AFE44C00FF43A6 /* GameBoxScore.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		91B452F427B1712A00FF43A6 /* DatabaseModels */ = {
+			isa = PBXGroup;
+			children = (
+				91B4529A27B0CEF300FF43A6 /* MainMenuCategory.swift */,
+				91B4529E27B0CF0200FF43A6 /* NHLGameLog.swift */,
+				91B452A027B0CF0900FF43A6 /* NHLPeriodScoringData.swift */,
+				91B452A227B0CF0F00FF43A6 /* NHLPlayer.swift */,
+				91B452A427B0CF1300FF43A6 /* NHLPlayerInjury.swift */,
+				91B452A627B0CF1800FF43A6 /* NHLScheduledGame.swift */,
+				91B452A827B0CF1C00FF43A6 /* NHLScoringSummary.swift */,
+				91B452AA27B0CF2000FF43A6 /* NHLTeam.swift */,
+				91B452AC27B0CF2500FF43A6 /* PlayerStatistics.swift */,
+				91B452B027B0CF3700FF43A6 /* TeamStandings.swift */,
+				91B452B227B0CF3C00FF43A6 /* TeamStatistics.swift */,
+			);
+			path = DatabaseModels;
+			sourceTree = "<group>";
+		};
+		91B452F527B1718E00FF43A6 /* ErrorEnums */ = {
+			isa = PBXGroup;
+			children = (
+				91B452D827B16A7000FF43A6 /* DatabaseErrorEnum.swift */,
+				91B452D727B16A7000FF43A6 /* NetworkErrorEnum.swift */,
+			);
+			path = ErrorEnums;
+			sourceTree = "<group>";
+		};
+		91B452F627B171C400FF43A6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				91B452FA27B1720600FF43A6 /* TeamViewModel.swift */,
+				91B452AE27B0CF2A00FF43A6 /* SeasonScheduleViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		91B452FC27B1723B00FF43A6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				91B452E127B16A9400FF43A6 /* TimeAndDateUtils.swift */,
+				91B452C327B0CF6A00FF43A6 /* ConversionUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		91B452FD27B1727200FF43A6 /* PresentationModels */ = {
+			isa = PBXGroup;
+			children = (
+				91B4529027B0CEB800FF43A6 /* ScheduledGame.swift */,
+				91B4527027AF912B00FF43A6 /* Team.swift */,
+				91B4529627B0CECA00FF43A6 /* Venue.swift */,
+			);
+			path = PresentationModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,19 +383,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91B4525627AF845D00FF43A6 /* Views in Resources */,
-				91B4524F27AF83E900FF43A6 /* Database Models in Resources */,
-				91B4524D27AF83DD00FF43A6 /* Enums in Resources */,
 				91B4523E27AF836600FF43A6 /* Preview Assets.xcassets in Resources */,
-				91B4524B27AF83CF00FF43A6 /* Error Enums in Resources */,
 				91B4523B27AF836600FF43A6 /* Assets.xcassets in Resources */,
-				91B4525C27AF854B00FF43A6 /* Models in Resources */,
-				91B4525827AF84D100FF43A6 /* Managers in Resources */,
-				91B4525A27AF84DC00FF43A6 /* Logging in Resources */,
-				91B4524927AF83BE00FF43A6 /* Utils in Resources */,
 				91B4527B27AFE06300FF43A6 /* AppIcon.appiconset in Resources */,
-				91B4524727AF83B000FF43A6 /* Extensions in Resources */,
-				91B4524527AF839100FF43A6 /* ViewModels in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,21 +396,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91B4529127B0CEB800FF43A6 /* ScheduledGame.swift in Sources */,
+				91B452E027B16A8900FF43A6 /* DivisionEnum.swift in Sources */,
+				91B4529727B0CECA00FF43A6 /* Venue.swift in Sources */,
+				91B452DC27B16A7900FF43A6 /* Log.swift in Sources */,
 				91B4527127AF912B00FF43A6 /* Team.swift in Sources */,
 				91B4526927AF88CA00FF43A6 /* PeriodEnum.swift in Sources */,
+				91B452D927B16A7000FF43A6 /* DatabaseErrorEnum.swift in Sources */,
+				91B452A527B0CF1300FF43A6 /* NHLPlayerInjury.swift in Sources */,
+				91B452D627B16A3600FF43A6 /* TeamManager.swift in Sources */,
+				91B452BA27B0CF4F00FF43A6 /* PlayedStatusEnum.swift in Sources */,
 				91B4527F27AFE7F300FF43A6 /* SeasonStanding.swift in Sources */,
+				91B4529B27B0CEF300FF43A6 /* MainMenuCategory.swift in Sources */,
 				91B4527927AFDB0F00FF43A6 /* TeamNavLinkView.swift in Sources */,
-				91B4526F27AF910100FF43A6 /* TeamViewModel.swift in Sources */,
+				91B452A327B0CF0F00FF43A6 /* NHLPlayer.swift in Sources */,
+				91B4528F27B0CEB100FF43A6 /* ContentView.swift in Sources */,
 				91B4525427AF841C00FF43A6 /* NeumorphicButtonStyle.swift in Sources */,
+				91B4528127B0ABD200FF43A6 /* APIService.swift in Sources */,
 				91B4527727AFA9F600FF43A6 /* LeagueTeamView.swift in Sources */,
+				91B452FB27B1720600FF43A6 /* TeamViewModel.swift in Sources */,
+				91B452B127B0CF3700FF43A6 /* TeamStandings.swift in Sources */,
 				91B4527527AFA79F00FF43A6 /* ConferenceTeamView.swift in Sources */,
 				91B4526527AF880100FF43A6 /* ScoresView.swift in Sources */,
+				91B452BD27B0CF4F00FF43A6 /* PlayingProbabilityEnum.swift in Sources */,
 				91B4527D27AFE44C00FF43A6 /* GameBoxScore.swift in Sources */,
+				91B452E227B16A9400FF43A6 /* TimeAndDateUtils.swift in Sources */,
+				91B4529F27B0CF0200FF43A6 /* NHLGameLog.swift in Sources */,
+				91B452AB27B0CF2000FF43A6 /* NHLTeam.swift in Sources */,
 				91B4527327AFA4E700FF43A6 /* TeamTabView.swift in Sources */,
+				91B452AF27B0CF2A00FF43A6 /* SeasonScheduleViewModel.swift in Sources */,
+				91B452A727B0CF1800FF43A6 /* NHLScheduledGame.swift in Sources */,
+				91B452A927B0CF1C00FF43A6 /* NHLScoringSummary.swift in Sources */,
+				91B452AD27B0CF2500FF43A6 /* PlayerStatistics.swift in Sources */,
+				91B4529327B0CEBB00FF43A6 /* Season.swift in Sources */,
+				91B452D227B1037B00FF43A6 /* DataConversionHelper.swift in Sources */,
 				91B4523727AF836300FF43A6 /* HockeyInfoDatabaseApp.swift in Sources */,
+				91B452D527B16A3600FF43A6 /* DatabaseManager.swift in Sources */,
 				91B4525127AF840000FF43A6 /* Constants.swift in Sources */,
+				91B452B927B0CF4F00FF43A6 /* PositionEnum.swift in Sources */,
+				91B452DF27B16A8900FF43A6 /* ConferenceEnum.swift in Sources */,
+				91B452DA27B16A7000FF43A6 /* NetworkErrorEnum.swift in Sources */,
+				91B452C527B0CF6A00FF43A6 /* ConversionUtils.swift in Sources */,
+				91B452A127B0CF0900FF43A6 /* NHLPeriodScoringData.swift in Sources */,
 				91B4526D27AF8F3800FF43A6 /* DivisionTeamView.swift in Sources */,
+				91B452B327B0CF3C00FF43A6 /* TeamStatistics.swift in Sources */,
 				91B4526B27AF88E600FF43A6 /* ScheduleView.swift in Sources */,
+				91B452E627B16AB400FF43A6 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

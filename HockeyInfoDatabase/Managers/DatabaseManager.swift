@@ -9,7 +9,10 @@ import RealmSwift
 
 class DatabaseManager
 {
+    let shortDateFormatter = DateFormatter()
     let fullDateFormatter = DateFormatter()
+    let timeFormatter = DateFormatter()
+    let dateStringFormatter = DateFormatter()
     
     let today = Date()
     
@@ -644,6 +647,144 @@ class DatabaseManager
         Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
     
+    func saveRosters(_ players: [NHLPlayer]) throws
+    {
+        do
+        {
+            Log.info("Saving roster players...")
+            
+            try self.realm.write
+            {
+                self.realm.add(players, update: .modified)
+                
+                Log.info("Players have successfully been saved to the database!!")
+            }
+        }
+        catch
+        {
+            Log.error("Error saving players to the database: \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.saveToDatabase
+        }
+        
+        Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
+    }
+    
+    func saveScoringSummary(_ scoringSummary: NHLScoringSummary) throws
+    {
+        do
+        {
+            Log.info("Saving scoring summary...")
+            
+            try self.realm.write
+            {
+                self.realm.add(scoringSummary, update: .modified)
+                
+                Log.info("Scoring summary for game id \(scoringSummary.gameId) has successfully been saved to the database!!")
+            }
+        }
+        catch
+        {
+            Log.error("Error saving scoring summary for game id \(scoringSummary.gameId) to the database: \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.saveToDatabase
+        }
+        
+        Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
+    }
+    
+    func saveStandings(_ standings: TeamStandings) throws
+    {
+        do
+        {
+            Log.info("Saving team standings...")
+            
+            try self.realm.write
+            {
+                self.realm.add(standings, update: .modified)
+                
+                Log.info("Team standings have successfully been saved to the database!!")
+            }
+        }
+        catch
+        {
+            Log.error("Error saving team standings to the database: \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.saveToDatabase
+        }
+        
+        Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
+    }
+    
+    func savePlayerStats(_ playerStatistics : [PlayerStatistics]) throws
+    {
+        do
+        {
+            Log.info("Saving player statistics...")
+            
+            try self.realm.write
+            {
+                self.realm.add(playerStatistics, update: .modified)
+                
+                Log.info("Player statistics have successfully been saved to the database!!")
+            }
+        }
+        catch
+        {
+            Log.error("Error saving player statistics to the database: \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.saveToDatabase
+        }
+        
+        Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
+    }
+    
+    func savePlayerInjuries(_ playerInjuries: [NHLPlayerInjury]) throws
+    {
+        do
+        {
+            Log.info("Saving player injuries...")
+            
+            try self.realm.write
+            {
+                self.realm.add(playerInjuries, update: .modified)
+                
+                Log.info("Player injuries have successfully been saved to the database!!")
+            }
+        }
+        catch
+        {
+            Log.error("Error saving player injuries to the database: \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.saveToDatabase
+        }
+        
+        Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
+    }
+    
+    func saveGameLogs(_ gameLogs: [NHLGameLog]) throws
+    {
+        do
+        {
+            Log.info("Saving game logs...")
+            
+            try self.realm.write
+            {
+                self.realm.add(gameLogs, update: .modified)
+                
+                Log.info("Game logs have successfully been saved to the database!!")
+            }
+        }
+        catch
+        {
+            Log.error("Error saving game logs to the database: \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.saveToDatabase
+        }
+        
+        Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
+    }
+    
     // MARK: Link methods
     func teamTableRequiresLinking() -> Bool
     {
@@ -923,9 +1064,9 @@ class DatabaseManager
         {
             try realm.write
             {
-                let teamResults = realm.objects(NHLTeam.self)
+                let teams = realm.objects(NHLTeam.self)
                 
-                for team in teamResults
+                for team in teams
                 {
                     team.players.removeAll()
                     team.playerInjuries.removeAll()

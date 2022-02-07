@@ -53,5 +53,5 @@ class PlayerStatistics : Object
     @Persisted var creditForGame: Int = 0
     @Persisted var minutesPlayed: Int = 0
     
-    //@Persisted(originProperty: "playerStatisticsList") var parentPlayer = NHLPlayer
+    @Persisted(originProperty: "playerStatisticsList") var parentPlayer : LinkingObjects<NHLPlayer>
 }

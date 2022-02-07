@@ -27,6 +27,8 @@ class NHLScheduledGame: Object
     @Persisted var lastUpdatedOn: String = Constants.EMPTY_STRING
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
     
+    @Persisted(originProperty: "schedules") var parentTeam : LinkingObjects<NHLTeam>
+    
     override init()
     {
         super.init()
@@ -35,9 +37,5 @@ class NHLScheduledGame: Object
         {
             dateCreated = TimeAndDateUtils.getCurrentDateAsString()
         }
-    }
-    
-    
-    
-    @Persisted(originProperty: "schedules") var parentTeam : LinkingObjects<NHLTeam>
+    } 
 }
