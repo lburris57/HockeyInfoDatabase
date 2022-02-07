@@ -1,12 +1,12 @@
 //
-//  PlayerGameLogsByDate.swift
+//  PlayerGameLogsForDate.swift
 //  HockeyInfoDatabase
 //
 //  Created by Larry Burris on 2/7/22.
 //
 import Foundation
 
-struct PlayerGameLogsByDate: Codable
+struct PlayerGameLogsForDate: Codable
 {
     struct Gamelog: Codable
     {

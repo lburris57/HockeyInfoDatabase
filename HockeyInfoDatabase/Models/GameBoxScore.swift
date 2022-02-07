@@ -127,7 +127,7 @@ struct GameBoxScore: Codable
                     let shorthandedGoalsAgainst: Int
                 }
 
-                struct Miscellaneou: Codable
+                struct Miscellaneous: Codable
                 {
                     let goalsFor: Int
                     let goalsAgainst: Int
@@ -157,7 +157,7 @@ struct GameBoxScore: Codable
                 let standings: Standing
                 let faceoffs: Faceoff
                 let powerplay: Powerplay
-                let miscellaneous: Miscellaneou
+                let miscellaneous: Miscellaneous
             }
 
             struct Player: Codable
@@ -333,7 +333,7 @@ struct GameBoxScore: Codable
                     let shorthandedGoalsAgainst: Int
                 }
 
-                struct Miscellaneou: Codable
+                struct Miscellaneous: Codable
                 {
                     let goalsFor: Int
                     let goalsAgainst: Int
@@ -363,7 +363,7 @@ struct GameBoxScore: Codable
                 let standings: Standing
                 let faceoffs: Faceoff
                 let powerplay: Powerplay
-                let miscellaneous: Miscellaneou
+                let miscellaneous: Miscellaneous
             }
 
             struct Player: Codable

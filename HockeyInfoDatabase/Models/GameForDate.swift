@@ -1,12 +1,12 @@
 //
-//  GamesByDate.swift
+//  GamesForDate.swift
 //  HockeyInfoDatabase
 //
 //  Created by Larry Burris on 2/7/22.
 //
 import Foundation
 
-struct GamesByDate: Codable
+struct GameForDate: Codable
 {
     struct Game: Codable
     {
