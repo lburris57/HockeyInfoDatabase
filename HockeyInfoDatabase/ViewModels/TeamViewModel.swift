@@ -11,10 +11,10 @@ class TeamViewModel
     let teams = Team.allTeams()
     let conferences = ["Eastern Conference", "Western Conference"]
     let divisions = ["Atlantic Division", "Metropolitan Division", "Central Division", "Pacific Division"]
-    let easternConferenceTeams = Team.allEasternConferenceTeams()
-    let westernConferenceTeams = Team.allWesternConferenceTeams()
     let atlanticDivisionTeams = Team.allAtlanticDivisionTeams()
     let metropolitanDivisionTeams = Team.allMetropolitanDivisionTeams()
     let centralDivisionTeams = Team.allCentralDivisionTeams()
     let pacificDivisionTeams = Team.allPacificDivisionTeams()
+    let easternConferenceTeams = Team.allEasternConferenceTeams()
+    let westernConferenceTeams = Team.allWesternConferenceTeams()
 }

@@ -9,7 +9,7 @@ import RealmSwift
 
 class NHLGameLog: Object
 {
-    @Persisted(primaryKey: true) var id: ObjectId = 0
+    @Persisted(primaryKey: true) var id : Int = 0
     @Persisted var date : String = Constants.EMPTY_STRING
     @Persisted var time : String = Constants.EMPTY_STRING
     @Persisted var playedStatus : String = Constants.EMPTY_STRING
@@ -60,5 +60,5 @@ class NHLGameLog: Object
     @Persisted var lastUpdatedOn: String = Constants.EMPTY_STRING
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
     
-    @Persisted(originProperty: "gameLogs") var parentTeam = NHLTeam?
+    @Persisted(originProperty: "gameLogs") var parentTeam : LinkingObjects<NHLTeam>
 }

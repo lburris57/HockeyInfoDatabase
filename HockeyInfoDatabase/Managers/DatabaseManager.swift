@@ -1,6 +1,6 @@
 //
 //  DatabaseManager.swift
-//  HockeyInfoDatabase
+//  HockeyDatabase
 //
 //  Created by Larry Burris on 1/15/22.
 //
@@ -17,218 +17,413 @@ class DatabaseManager
     let realm = try! Realm()
     
     // MARK: Retrieve Methods
-    func retrievePlayerById(_ id: Int) -> NHLPlayer?
+    func retrievePlayerById(_ playerId: Int) throws -> NHLPlayer?
     {
-        var playerResult: NHLPlayer?
+        var player: NHLPlayer?
         
         do
         {
             try realm.write
             {
-                playerResult = realm.objects(NHLPlayer.self).filter("id ==\(id)").first
+                player = realm.objects(NHLPlayer.self).filter("id ==\(playerId)").first
             }
         }
         catch
         {
-            Log.error("Error retrieving player: \(error.localizedDescription)")
+            Log.error("Error retrieving player id \(playerId): \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
         }
         
-        return playerResult
+        return player
     }
     
-    func retrievePlayerStatisticsByPlayerID(_ playerId: Int) -> PlayerStatistics?
+    func retrievePlayerStatisticsById(_ playerId: Int) throws -> PlayerStatistics?
     {
-        var playerStatisticsResult: PlayerStatistics?
+        var playerStatistics: PlayerStatistics?
         
         do
         {
             try realm.write
             {
-                playerStatisticsResult = realm.objects(PlayerStatistics.self).filter("id ==\(playerId)").first
+                playerStatistics = realm.objects(PlayerStatistics.self).filter("id ==\(playerId)").first
             }
         }
         catch
         {
-            Log.error("Error retrieving player statistics: \(error.localizedDescription)")
+            Log.error("Error retrieving statistics for player id \(playerId): \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
         }
         
-        return playerStatisticsResult
+        return playerStatistics
     }
     
-    func retrieveScoringSummaryByGameId(_ gameId: Int) -> NHLScoringSummary?
+    func retrieveScoringSummaryByGameId(_ gameId: Int) throws -> NHLScoringSummary?
     {
-        var scoringSummaryResult: NHLScoringSummary?
+        var scoringSummary: NHLScoringSummary?
         
         do
         {
             try realm.write
             {
-                scoringSummaryResult = realm.objects(NHLScoringSummary.self).filter("id ==\(gameId)").first
+                scoringSummary = realm.objects(NHLScoringSummary.self).filter("id ==\(gameId)").first
             }
         }
         catch
         {
-            Log.error("Error retrieving scoring summary: \(error.localizedDescription)")
+            Log.error("Error retrieving scoring summary for game id \(gameId): \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
         }
         
-        return NHLScoringSummaryResult
+        return scoringSummary
     }
     
-    func retrieveGameLogByGameId(gameId: Int) -> NHLGameLog?
+    func retrieveGameLogByGameId(_ gameId: Int) throws -> NHLGameLog?
     {
-        var gameLogResult: NHLGameLog?
+        var gameLog: NHLGameLog?
         
         do
         {
             try realm.write
             {
-                gameLogResult = realm.objects(NHLGameLog.self).filter("id ==\(gameId)").first
+                gameLog = realm.objects(NHLGameLog.self).filter("id ==\(gameId)").first
             }
         }
         catch
         {
-            Log.error("Error retrieving game log: \(error.localizedDescription)")
+            Log.error("Error retrieving game log for game id \(gameId): \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
         }
         
-        return gameLogResult
+        return gameLog
     }
     
-    func retrieveStandings() -> Results<TeamStandings>?
+    func retrieveTeamStandings() throws -> [TeamStandings]
     {
-        var standingsResult: Results<TeamStandings>?
+        var teamStandings = [TeamStandings]()
         
         do
         {
             try realm.write
             {
-                standingsResult = realm.objects(TeamStandings.self)
+                teamStandings = convertToArray(results: realm.objects(TeamStandings.self))
             }
         }
         catch
         {
             Log.error("Error retrieving team standings: \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
         }
         
-        return standingsResult
+        return teamStandings
     }
     
-    func retrieveSchedule() -> Results<NHLSchedule>?
+    func retrieveAllScheduledGames() throws -> [NHLScheduledGame]
     {
-        var scheduleResult: Results<NHLSchedule>?
+        var scheduledGames = [NHLScheduledGame]()
         
         do
         {
             try realm.write
             {
-                scheduleResult = realm.objects(NHLSchedule.self)
+                scheduledGames = convertToArray(results: realm.objects(NHLScheduledGame.self))
             }
         }
         catch
         {
-            Log.error("Error retrieving schedule: \(error.localizedDescription)")
+            Log.error("Error retrieving all scheduled games: \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
         }
         
-        return scheduleResult
+        return scheduledGames
     }
     
-    func retrieveAllTeams() -> Results<NHLTeam>?
+    func retrieveAllTeams() throws -> [NHLTeam]
     {
-        var teamResults: Results<NHLTeam>?
+        var teams = [NHLTeam]()
         
         do
         {
             try realm.write
             {
-                teamResults = realm.objects(NHLTeam.self)
+                teams = convertToArray(results: realm.objects(NHLTeam.self))
             }
         }
         catch
         {
-            Log.error("Error retrieving teams: \(error.localizedDescription)")
+            Log.error("Error retrieving all teams: \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
         }
         
-        return teamResults
+        return teams
     }
     
-    func retrieveRosterByTeamId(_ teamId: Int) -> Results<NHLPlayer>?
+    func retrievePlayerRosterByTeamId(_ teamId: Int) throws -> [NHLPlayer]
     {
-        var rosterResult: Results<NHLPlayer>?
+        var players = [NHLPlayer]()
         
         do
         {
             try realm.write
             {
-                rosterResult = realm.objects(NHLPlayer.self).filter("teamId ==\(teamId)")
+                players = convertToArray(results: realm.objects(NHLPlayer.self).filter("teamId ==\(teamId)"))
             }
         }
         catch
         {
-            Log.error("Error retrieving roster for team \(TeamManager.getTeamById(teamId)): \(error.localizedDescription)")
+            Log.error("Error retrieving roster for \(TeamManager.getTeamByID(teamId)): \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
         }
         
-        return rosterResult
+        return players
     }
     
-    func retrieveTeamById(_ teamId: Int) -> Results<NHLTeam>?
+    func retrieveTeamById(_ teamId: Int) throws -> NHLTeam?
     {
-        var teamResult: Results<NHLTeam>?
+        var team: NHLTeam?
         
         do
         {
             try realm.write
             {
-                teamResult = realm.objects(NHLTeam.self).filter("id ==\(teamId)")
+                team = realm.objects(NHLTeam.self).filter("id ==\(teamId)").first
             }
         }
         catch
         {
-            Log.error("Error retrieving team information: \(error.localizedDescription)")
-        }
-        
-        return teamResult
-    }
-    
-    func retrieveInjuriesByTeamId(_ teamId: Int) -> Results<NHLPlayerInjury>?
-    {
-        var injuryResult: Results<NHLPlayerInjury>?
-        
-        do
-        {
-            try realm.write
-            {
-                injuryResult = realm.objects(NHLPlayerInjury.self).filter("teamId ==\(teamId)")
-            }
-        }
-        catch
-        {
-            Log.error("Error retrieving team injuries: \(error.localizedDescription)")
-        }
-        
-        return injuryResult
-    }
-    
-    func retrieveTeamStatisticsById(_ teamId: Int) -> NHLTeam?
-    {
-        var team : NHLTeam?
-        
-        do
-        {
-            try realm.write
-            {
-                team = realm.objects(NHLTeam.self).filter("id = \(teamId)").first
-            }
-        }
-        catch
-        {
-            Log.error("Error retrieving team statistics for \(teamId): \(error.localizedDescription)")
+            Log.error("Error retrieving team information for \(TeamManager.getTeamByID(teamId)): \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
         }
         
         return team
     }
     
-    func TeamSchedulesById(_ teamId: Int) -> Results<NHLSchedule>?
+    func retrieveTodaysGames() -> [NHLScheduledGame]
     {
-        var teamSchedules : Results<NHLSchedule>?
+        var scheduledGames = [NHLScheduledGame]()
+        
+        do
+        {
+            try realm.write
+            {
+                scheduledGames = convertToArray(results: realm.objects(NHLScheduledGame.self).filter("date = '\(TimeAndDateUtils.getCurrentDateAsString())'"))
+            }
+        }
+        catch
+        {
+            Log.error("Error retrieving today's games: \(error.localizedDescription)")
+        }
+        
+        return scheduledGames
+    }
+    
+    func retrieveScheduledGamesByDate(_ date: Date) -> [NHLScheduledGame]
+    {
+        var scheduledGameList = [NHLScheduledGame]()
+        
+        let dateString = TimeAndDateUtils.getDateAsString(date)
+        
+        do
+        {
+            try realm.write
+            {
+                let scheduledGames = realm.objects(NHLScheduledGame.self).filter("date = '\(dateString)'")
+                
+                for scheduledGame in scheduledGames
+                {
+                    let awayTeam = TeamManager.getFullTeamName(scheduledGame.awayTeam)
+                    let homeTeam = TeamManager.getFullTeamName(scheduledGame.homeTeam)
+                    let venue = TeamManager.getVenueByTeam(scheduledGame.homeTeam)
+                    let startTime = scheduledGame.time
+                    
+                    let schedule = NHLScheduledGame()
+                    
+                    schedule.awayTeam = awayTeam
+                    schedule.homeTeam = homeTeam
+                    schedule.venue = venue
+                    schedule.time = startTime
+                    
+                    scheduledGameList.append(schedule)
+                }
+            }
+        }
+        catch
+        {
+            Log.error("Error retrieving scheduled games for \(dateString): \(error.localizedDescription)")
+        }
+        
+        return scheduledGameList
+    }
+    
+    func retrieveScheduledGamesByDateString(_ date: String) -> [NHLScheduledGame]
+    {
+        var scheduledGameList = [NHLScheduledGame]()
+        
+        do
+        {
+            try realm.write
+            {
+                let scheduledGames = realm.objects(NHLScheduledGame.self).filter("date = '\(date)'")
+                
+                for scheduledGame in scheduledGames
+                {
+                    let awayTeam = TeamManager.getFullTeamName(scheduledGame.awayTeam)
+                    let homeTeam = TeamManager.getFullTeamName(scheduledGame.homeTeam)
+                    let venue = TeamManager.getVenueByTeam(scheduledGame.homeTeam)
+                    let startTime = scheduledGame.time
+                    
+                    let schedule = NHLScheduledGame()
+                    
+                    schedule.awayTeam = awayTeam
+                    schedule.homeTeam = homeTeam
+                    schedule.venue = venue
+                    schedule.time = startTime
+                    
+                    scheduledGameList.append(schedule)
+                }
+            }
+        }
+        catch
+        {
+            Log.error("Error retrieving scheduled games for \(date): \(error.localizedDescription)")
+        }
+        
+        return scheduledGameList
+    }
+    
+    func retrieveScoresAsNHLScheduledGames(_ date: Date) -> [NHLScheduledGame]
+    {
+        var scheduledGames = [NHLScheduledGame]()
+        
+        let dateString = TimeAndDateUtils.getDateAsString(date)
+        
+        do
+        {
+            try realm.write
+            {
+                scheduledGames = convertToArray(results: realm.objects(NHLScheduledGame.self).filter("date = '\(dateString)'"))
+            }
+        }
+        catch
+        {
+            Log.error("Error retrieving scheduled games for \(dateString): \(error.localizedDescription)")
+        }
+        
+        return scheduledGames
+    }
+    
+    func retrieveAllPlayers() -> [NHLPlayer]
+    {
+        var players = [NHLPlayer]()
+        
+        do
+        {
+            try realm.write
+            {
+                players = convertToArray(results: realm.objects(NHLPlayer.self))
+            }
+        }
+        catch
+        {
+            Log.error("Error retrieving all players: \(error.localizedDescription)")
+        }
+        
+        return players
+    }
+    
+    func retrieveGameLogsForDate(_ date: Date) -> [NHLGameLog]
+    {
+        var gameLogs = [NHLGameLog]()
+        
+        let dateString = TimeAndDateUtils.getDateAsString(date)
+        
+        do
+        {
+            try realm.write
+            {
+                gameLogs = convertToArray(results: realm.objects(NHLGameLog.self).filter("date='\(dateString)'"))
+            }
+        }
+        catch
+        {
+            Log.error("Error retrieving game logs for \(dateString): \(error.localizedDescription)")
+        }
+        
+        return gameLogs
+    }
+    
+    func retrieveMainMenuCategories() -> [MainMenuCategory]
+    {
+        var categories = [MainMenuCategory]()
+        
+        do
+        {
+            try realm.write
+            {
+                categories = convertToArray(results: realm.objects(MainMenuCategory.self))
+            }
+        }
+        catch
+        {
+            Log.error("Error retrieving main menu categories: \(error.localizedDescription)")
+        }
+        
+        return categories
+    }
+    
+    func retrieveInjuriesByTeamId(_ teamId: Int) throws -> [NHLPlayerInjury]
+    {
+        var injuries = [NHLPlayerInjury]()
+        
+        do
+        {
+            try realm.write
+            {
+                injuries = convertToArray(results: realm.objects(NHLPlayerInjury.self).filter("teamId ==\(teamId)"))
+            }
+        }
+        catch
+        {
+            Log.error("Error retrieving injuries for \(TeamManager.getTeamByID(teamId)): \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
+        }
+        
+        return injuries
+    }
+    
+    func retrieveTeamStatisticsById(_ teamId: Int) throws -> TeamStatistics?
+    {
+        var teamStatistics : TeamStatistics?
+        
+        do
+        {
+            try realm.write
+            {
+                teamStatistics = realm.objects(TeamStatistics.self).filter("id = \(teamId)").first
+            }
+        }
+        catch
+        {
+            Log.error("Error retrieving statistics for \(TeamManager.getTeamByID(teamId)): \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
+        }
+        
+        return teamStatistics
+    }
+    
+    func retrieveScheduledGamesByTeamId(_ teamId: Int) throws -> [NHLScheduledGame]
+    {
+        var scheduledGames = [NHLScheduledGame]()
         
         let team = TeamManager.getTeamByID(teamId)
         
@@ -236,15 +431,17 @@ class DatabaseManager
         {
             try realm.write
             {
-                teamSchedules = realm.objects(NHLSchedule.self).filter("homeTeam = '\(team)' OR awayTeam = '\(team)'")
+                scheduledGames = convertToArray(results: realm.objects(NHLScheduledGame.self).filter("homeTeam = '\(team)' OR awayTeam = '\(team)'"))
             }
         }
         catch
         {
-            Log.error("Error retrieving team schedule results for \(teamId): \(error.localizedDescription)")
+            Log.error("Error retrieving schedule results for \(TeamManager.getTeamByID(teamId)): \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.readFromDatabase
         }
         
-        return teamSchedules
+        return scheduledGames
     }
     
     // MARK: Requires saving methods
@@ -264,13 +461,13 @@ class DatabaseManager
         }
         catch
         {
-            Log.error("Error retrieving category count: \(error.localizedDescription)")
+            Log.error("Error retrieving menu category count: \(error.localizedDescription)")
         }
         
         return result
     }
     
-    func scheduleRequiresSaving() -> Bool
+    func scheduledGamesRequiresSaving() -> Bool
     {
         var result = false
         
@@ -278,7 +475,7 @@ class DatabaseManager
         {
             try realm.write
             {
-                if realm.objects(NHLSchedule.self).count == 0
+                if realm.objects(NHLScheduledGame.self).count == 0
                 {
                     result = true
                 }
@@ -286,7 +483,7 @@ class DatabaseManager
         }
         catch
         {
-            Log.error("Error retrieving schedule count: \(error.localizedDescription)")
+            Log.error("Error retrieving scheduled games count: \(error.localizedDescription)")
         }
         
         return result
@@ -380,7 +577,8 @@ class DatabaseManager
         return result
     }
     
-    func saveMainMenuCategories()
+    // MARK: Save methods
+    func saveMainMenuCategories() throws
     {
         let categories = ["Season Schedule", "Team Information", "Standings", "Scores"]
         
@@ -394,7 +592,6 @@ class DatabaseManager
         {
             let mainMenuCategory = MainMenuCategory()
             
-            mainMenuCategory.id = id
             mainMenuCategory.category = category
             mainMenuCategory.dateCreated = dateString
             
@@ -417,200 +614,34 @@ class DatabaseManager
         catch
         {
             Log.error("Error saving main menu categories to the database: \(error.localizedDescription)")
-        }
-        
-        Log.info(Realm.Configuration.defaultConfiguration.fileURL!)
-    }
-    
-    // MARK: Retrieve methods
-    func retrieveTodaysGames()
-    {
-        do
-        {
-            try realm.write
-            {
-                let scheduledGames = realm.objects(NHLSchedule.self).filter("date = '\(TimeAndDateUtils.getCurrentDateAsString())'")
-                
-                mainViewController.performSegue(withIdentifier: "displayCalendar", sender: scheduledGames)
-            }
-        }
-        catch
-        {
-            Log.error("Error retrieving today's games: \(error.localizedDescription)")
-        }
-    }
-    
-    func retrieveGames(_ date: Date) -> [Schedule]
-    {
-        var schedules = [Schedule]()
-        
-        let dateString = TimeAndDateUtils.getDateAsString(date)
-        
-        do
-        {
-            try realm.write
-            {
-                let scheduledGames = realm.objects(NHLSchedule.self).filter("date = '\(dateString)'")
-                
-                for scheduledGame in scheduledGames
-                {
-                    let awayTeam = TeamManager.getFullTeamName(scheduledGame.awayTeam)
-                    let homeTeam = TeamManager.getFullTeamName(scheduledGame.homeTeam)
-                    let venue = TeamManager.getVenueByTeam(scheduledGame.homeTeam)
-                    let startTime = scheduledGame.time
-                    
-                    let schedule = Schedule(title: "\(awayTeam) @ \(homeTeam)",
-                        note: "\(venue)",
-                        startTime: "\(startTime)",
-                        endTime: "\(startTime)",
-                        categoryColor: .black)
-                    
-                    schedules.append(schedule)
-                }
-                
-                if(schedules.count == 0)
-                {
-                    let schedule = Schedule(title: "",
-                        note: "No games scheduled",
-                        startTime: "",
-                        endTime: "",
-                        categoryColor: .black)
-                    
-                    schedules.append(schedule)
-                }
-            }
-        }
-        catch
-        {
-            Log.error("Error retrieving scheduled games for \(dateString): \(error.localizedDescription)")
-        }
-        
-        return schedules
-    }
-    
-    func retrieveScoringSummary(for gameId: Int) throws -> NHLScoringSummary?
-    {
-        var scoringSummaryResult: NHLScoringSummary?
-        
-        do
-        {
-            try realm.write
-            {
-                scoringSummaryResult = realm.objects(NHLScoringSummary.self).filter("id ==\(gameId)").first
-            }
-        }
-        catch
-        {
-            Log.error("Error retrieving scoring summary: \(error.localizedDescription)")
             
-            throw DatabaseErrorEnum.readFromDatabase
+            throw DatabaseErrorEnum.saveToDatabase
         }
         
-        return scoringSummaryResult
+        Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
     
-    func retrieveScoresAsNHLSchedules(_ date: Date) -> Results<NHLSchedule>
+    func saveScheduledGames(_ scheduledGames: [NHLScheduledGame]) throws
     {
-        var scheduledGames : Results<NHLSchedule>?
-        
-        let dateString = TimeAndDateUtils.getDateAsString(date)
-        
         do
         {
-            try realm.write
+            Log.info("Saving scheduled games...")
+            
+            try self.realm.write
             {
-                scheduledGames = realm.objects(NHLSchedule.self).filter("date = '\(dateString)'")
-            }
-        }
-        catch
-        {
-            Log.error("Error retrieving scheduled games for \(dateString): \(error.localizedDescription)")
-        }
-        
-        return scheduledGames!
-    }
-    
-    func retrieveAllPlayers() -> Results<NHLPlayer>
-    {
-        var rosterResult: Results<NHLPlayer>?
-        
-        do
-        {
-            try realm.write
-            {
-                rosterResult = realm.objects(NHLPlayer.self)
-            }
-        }
-        catch
-        {
-            Log.error("Error retrieving all players: \(error.localizedDescription)")
-        }
-        
-        return rosterResult!
-    }
-    
-    func retrieveAllTeams() -> Results<NHLTeam>
-    {
-        var teamResult: Results<NHLTeam>?
-        
-        do
-        {
-            try realm.write
-            {
-                teamResult = realm.objects(NHLTeam.self)
-            }
-        }
-        catch
-        {
-            Log.error("Error retrieving all teams: \(error.localizedDescription)")
-        }
-        
-        return teamResult!
-    }
-    
-    func retrieveGameLogForDate(_ date: Date) -> Results<NHLGameLog>
-    {
-        var gameLogResult: Results<NHLGameLog>?
-        
-        let dateString = TimeAndDateUtils.getDateAsString(date)
-        
-        do
-        {
-            try realm.write
-            {
-                gameLogResult = realm.objects(NHLGameLog.self).filter("date='\(dateString)'")
-            }
-        }
-        catch
-        {
-            Log.error("Error retrieving game logs for \(dateString): \(error.localizedDescription)")
-        }
-        
-        return gameLogResult!
-    }
-    
-    func retrieveMainMenuCategories() -> [MenuCategory]
-    {
-        var categories = [MenuCategory]()
-        
-        do
-        {
-            try realm.write
-            {
-                let menuCategories = realm.objects(MainMenuCategory.self)
+                self.realm.add(scheduledGames, update: .modified)
                 
-                for menuCategory in menuCategories
-                {
-                    categories.append(MenuCategory(id: menuCategory.id, category: menuCategory.category, dateCreated: menuCategory.dateCreated))
-                }
+                Log.info("Scheduled games have successfully been saved to the database!!")
             }
         }
         catch
         {
-            Log.error("Error retrieving main menu categories: \(error.localizedDescription)")
+            Log.error("Error saving scheduled games to the database: \(error.localizedDescription)")
+            
+            throw DatabaseErrorEnum.saveToDatabase
         }
         
-        return categories
+        Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
     
     // MARK: Link methods
@@ -624,9 +655,7 @@ class DatabaseManager
             {
                 if let team = realm.objects(NHLTeam.self).filter("id = \(5)").first
                 {
-                    if(team.players.count == 0 || team.schedules.count == 0 ||
-                       team.gameLogs.count == 0 || team.standings.count == 0 ||
-                       team.statistics.count == 0)
+                    if(team.players.count == 0 || team.schedules.count == 0)
                     {
                         result = true
                     }
@@ -670,7 +699,7 @@ class DatabaseManager
             }
             catch
             {
-                Log.error("Error linking players to teams: \(error.localizedDecription)")
+                Log.error("Error linking players to teams: \(error.localizedDescription)")
             }
         }
     }
@@ -704,7 +733,7 @@ class DatabaseManager
             }
             catch
             {
-                Log.error("Error linking standings to teams: \(error.localizedDecription)")
+                Log.error("Error linking standings to teams: \(error.localizedDescription)")
             }
         }
     }
@@ -738,7 +767,7 @@ class DatabaseManager
             }
             catch
             {
-                Log.error("Error linking statistics to teams: \(error.localizedDecription)")
+                Log.error("Error linking statistics to teams: \(error.localizedDescription)")
             }
         }
     }
@@ -772,7 +801,7 @@ class DatabaseManager
             }
             catch
             {
-                Log.error("Error linking player injuries to teams: \(error.localizedDecription)")
+                Log.error("Error linking player injuries to teams: \(error.localizedDescription)")
             }
         }
     }
@@ -790,7 +819,7 @@ class DatabaseManager
                 try realm.write
                 {
                     //  Get all schedules for that particular team
-                    let scheduleResults = realm.objects(NHLSchedule.self).filter("homeTeam =='\(team.abbreviation)' OR " + "awayTeam =='\(team.abbreviation)'")
+                    let scheduleResults = realm.objects(NHLScheduledGame.self).filter("homeTeam =='\(team.abbreviation)' OR " + "awayTeam =='\(team.abbreviation)'")
                     
                     for schedule in scheduleResults
                     {
@@ -806,7 +835,7 @@ class DatabaseManager
             }
             catch
             {
-                Log.error("Error linking schedules to teams: \(error.localizedDecription)")
+                Log.error("Error linking schedules to teams: \(error.localizedDescription)")
             }
         }
     }
@@ -840,7 +869,7 @@ class DatabaseManager
             }
             catch
             {
-                Log.error("Error linking game logs to teams: \(error.localizedDecription)")
+                Log.error("Error linking game logs to teams: \(error.localizedDescription)")
             }
         }
     }
@@ -866,7 +895,7 @@ class DatabaseManager
         }
         catch
         {
-            Log.error("Error loading team records: \(error.localizedDecription)")
+            Log.error("Error loading team records: \(error.localizedDescription)")
         }
         
         return records
@@ -911,7 +940,7 @@ class DatabaseManager
         }
         catch
         {
-            Log.error("Error deleting team links: \(error.localizedDecription)")
+            Log.error("Error deleting team links: \(error.localizedDescription)")
         }
     }
     
@@ -930,13 +959,13 @@ class DatabaseManager
         }
         catch
         {
-            Log.error("Error deleting scoring summary data: \(error.localizedDecription)")
+            Log.error("Error deleting scoring summary data: \(error.localizedDescription)")
         }
     }
     
     func getLatestDatePlayed() -> String
     {
-        let scheduleResult = realm.objects(NHLSchedule.self).filter("playedStatus == '\(PlayedStatusEnum.completed.rawValue)'")
+        let scheduleResult = realm.objects(NHLScheduledGame.self).filter("playedStatus == '\(PlayedStatusEnum.completed.rawValue)'")
         let sortedScheduleResult = scheduleResult.sorted(byKeyPath: "id", ascending: false)
         
         return sortedScheduleResult[0].date
@@ -948,5 +977,18 @@ class DatabaseManager
         let gameLogResult = realm.objects(NHLGameLog.self).filter("id == \(maxValue ?? 0)")
         
         return gameLogResult[0].date
+    }
+    
+    //  Converts a Realm Results<R> object into an array of Realm objects of that type
+    private func convertToArray<R>(results: Results<R>) -> [R] where R: Object
+    {
+        var arrayOfResults: [R] = []
+        
+        for result in results
+        {
+            arrayOfResults.append(result)
+        }
+        
+        return arrayOfResults
     }
 }

@@ -29,5 +29,5 @@ class NHLPlayer : Object
     @Persisted var playerStatisticsList = List<PlayerStatistics>()
     @Persisted var playerInjuries = List<NHLPlayerInjury>()
     
-    @Persisted(originProperty: "players") var parentTeam = NHLTeam?
+    @Persisted(originProperty: "players") var parentTeam : LinkingObjects<NHLTeam>
 }

@@ -61,6 +61,9 @@ struct Constants
     static let USER_ID = "6faa8a21-d219-433a-914b-fcd2d4:MYSPORTSFEEDS"
     static let AUTHORIZATION_VALUE = "Basic "
     
+    //  URLs
+    static let REGULAR_SEASON_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/games.json"
+    
     //  Time and date formats
     static let MONTH_FORMAT = "MM"
     static let YEAR_FORMAT = "yyyy"

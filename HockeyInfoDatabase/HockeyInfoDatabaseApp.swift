@@ -13,7 +13,7 @@ struct HockeyInfoDatabaseApp: App
     {
         WindowGroup
         {
-            DivisionTeamView()
+            ScheduleView()
             .onAppear
             {
                 UserDefaults.standard.setValue(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")

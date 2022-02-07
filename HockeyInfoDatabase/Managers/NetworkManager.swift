@@ -9,7 +9,7 @@ import RealmSwift
 
 class NetworkManager
 {
-    let databaseManager = DatabaseManager()
+    //let databaseManager = DatabaseManager()
     
     let today = Date()
     
@@ -31,11 +31,6 @@ class NetworkManager
     }
     
     func saveScoringSummaryByGameId(_ gameId: Int)
-    {
-        
-    }
-    
-    func saveSchedule()
     {
         
     }

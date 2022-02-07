@@ -10,16 +10,44 @@ struct ScheduleView: View
 {
     @State var dateValue = Date()
     
+    var seasonScheduleViewModel = SeasonScheduleViewModel()
+    
     var body: some View
     {
+        //  The selectedValue property fixes a bug where the selected value of the date picker is not updated with tap gesture
+        let selectedValue = Binding<Date>(
+            
+            get:
+            {
+                dateValue
+            },
+            set:
+            {
+                dateValue = $0
+
+                //  Set the selected value in the view model to automatically update the published filtered list of scheduled games
+                seasonScheduleViewModel.selectedDate = formatDate(dateValue)
+                
+                print("Selected date assigned to view model is \(seasonScheduleViewModel.selectedDate)")
+            }
+        )
+        
         NavigationView
         {
             VStack(alignment: .leading, spacing: 0)
             {
-                DatePicker("Choose a date:",
-                        selection: $dateValue,
-                        displayedComponents: .date)
-                    .datePickerStyle(.graphical)
+                ZStack
+                {
+                    DatePicker("Choose a date:",
+                            selection: selectedValue,
+                            displayedComponents: .date)
+                            .datePickerStyle(.graphical)
+                    
+                    if seasonScheduleViewModel.isLoading
+                    {
+                        ProgressView()
+                    }
+                }
                 
                 Text("Scheduled games for \(formatDate(dateValue))")
                     .font(.subheadline).bold()
@@ -28,28 +56,29 @@ struct ScheduleView: View
                                 
                 ScrollView(showsIndicators: false)
                 {
-                    ForEach(0..<10)
+                    ForEach(SeasonScheduleViewModel.sampleGames(), id: \.self)
                     {
-                        _ in
+                        game in
                         
                         HStack(spacing: 5)
                         {
-                            Text("7:00 PM").font(.caption).bold().padding(.horizontal)
+                            Text("\(game.time)").font(.caption).bold().padding(.leading)
                             Text("|").font(.largeTitle)
                             
                             VStack(alignment: .leading)
                             {
-                                Text("St. Louis Blues @ NY Islanders")
-                                Text("Nassau Veterans Memorial Coliseum")
+                                Text("\(game.awayTeam) @ \(game.homeTeam)")
+                                Text("\(game.venue)")
                             }
                             .font(.caption)
+                            
+                            Spacer()
                         }
                     }
                 }
                 .listStyle(.plain)
                 
                 Spacer()
-                
             }
             .navigationTitle("Season Schedule")
             .navigationBarTitleDisplayMode(.inline)
@@ -58,6 +87,7 @@ struct ScheduleView: View
                 Button("Today")
                 {
                     dateValue = Date()
+                    selectedValue.wrappedValue = Date()
                 }
             }
         }
@@ -75,9 +105,9 @@ struct ScheduleView_Previews: PreviewProvider
 func formatDate(_ date: Date) -> String
 {
     let formatter = DateFormatter()
-    
+
     formatter.dateFormat = "EEEE, MMM d, yyyy"
-    
+
     return formatter.string(from: date)
 }
 

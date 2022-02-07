@@ -8,6 +8,9 @@ import Foundation
 
 struct Season: Codable
 {
+    let lastUpdatedOn: Date
+    let games: [Game]
+    
     struct Game: Codable
     {
         struct Schedule: Codable
@@ -29,18 +32,10 @@ struct Season: Codable
                 let id: Int
                 let name: String
             }
-
-            struct Official: Codable
-            {
-                let id: Int
-                let title: String
-                let firstName: String
-                let lastName: String
-            }
             
             let id: Int
             let startTime: Date
-            let endedTime: Any?
+            let endedTime: Date?
             let awayTeam: AwayTeam
             let homeTeam: HomeTeam
             let venue: Venue
@@ -50,9 +45,7 @@ struct Season: Codable
             let delayedOrPostponedReason: String?
             let playedStatus: String
             let attendance: Int?
-            let officials: [Official]
             let broadcasters: [String]
-            let weather: Weather?
         }
 
         struct Score: Codable
@@ -79,63 +72,4 @@ struct Season: Codable
         let schedule: Schedule
         let score: Score
     }
-
-    struct Reference: Codable
-    {
-        struct TeamReference: Codable
-        {
-            struct HomeVenue: Codable
-            {
-                let id: Int
-                let name: String
-            }
-
-            struct SocialMediaAccount: Codable
-            {
-                let mediaType: String
-                let value: String
-            }
-
-            let id: Int
-            let city: String
-            let name: String
-            let abbreviation: String
-            let homeVenue: HomeVenue
-            let teamColoursHex: [String]
-            let socialMediaAccounts: [SocialMediaAccount]
-            let officialLogoImageSrc: URL
-        }
-
-        struct VenueReference: Codable
-        {
-            struct GeoCoordinate: Codable
-            {
-                let latitude: Double
-                let longitude: Double
-            }
-
-            struct CapacitiesByEventType: Codable
-            {
-                let eventType: String
-                let capacity: Int
-            }
-
-            let id: Int
-            let name: String
-            let city: String
-            let country: String
-            let geoCoordinates: GeoCoordinate
-            let capacitiesByEventType: [CapacitiesByEventType]
-            let playingSurface: String?
-            let hasRoof: Bool
-            let hasRetractableRoof: Bool
-        }
-
-        let teamReferences: [TeamReference]
-        let venueReferences: [VenueReference]
-    }
-
-    let lastUpdatedOn: Date
-    let games: [Game]
-    let references: Reference
 }

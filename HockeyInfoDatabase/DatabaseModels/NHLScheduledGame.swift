@@ -1,5 +1,5 @@
 //
-//  NHLSchedule.swift
+//  NHLScheduledGame.swift
 //  HockeyInfoDatabase
 //
 //  Created by Larry Burris on 1/15/22.
@@ -7,7 +7,7 @@
 import Foundation
 import RealmSwift
 
-class NHLSchedule: Object
+class NHLScheduledGame: Object
 {
     @Persisted(primaryKey: true) var id : Int = 0
     @Persisted var date : String = Constants.EMPTY_STRING
@@ -23,8 +23,21 @@ class NHLSchedule: Object
     @Persisted var scheduleStatus : String = Constants.EMPTY_STRING
     @Persisted var currentTimeRemaining : Int = 0
     @Persisted var currentPeriod : Int = 0
+    @Persisted var venue: String = Constants.EMPTY_STRING
     @Persisted var lastUpdatedOn: String = Constants.EMPTY_STRING
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
     
-    @Persisted(originProperty: "schedules") var parentTeam = NHLTeam?
+    override init()
+    {
+        super.init()
+        
+        if dateCreated == Constants.EMPTY_STRING
+        {
+            dateCreated = TimeAndDateUtils.getCurrentDateAsString()
+        }
+    }
+    
+    
+    
+    @Persisted(originProperty: "schedules") var parentTeam : LinkingObjects<NHLTeam>
 }

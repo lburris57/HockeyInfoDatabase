@@ -20,7 +20,7 @@ class NHLTeam : Object
     @Persisted var players = List<NHLPlayer>()
     @Persisted var standings = List<TeamStandings>()
     @Persisted var statistics = List<TeamStatistics>()
-    @Persisted var schedules = List<NHLSchedule>()
+    @Persisted var schedules = List<NHLScheduledGame>()
     @Persisted var playerInjuries = List<NHLPlayerInjury>()
     @Persisted var gameLogs = List<NHLGameLog>()
 }

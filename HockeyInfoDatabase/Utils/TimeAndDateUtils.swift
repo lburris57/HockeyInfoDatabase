@@ -123,6 +123,26 @@ class TimeAndDateUtils
         return currentTimeRemainingString
     }
     
+    static func getTimeFromDate(_ date: Date) -> String
+    {
+        let formatter = DateFormatter()
+        
+        var formattableDate = date
+        
+        formatter.dateFormat = Constants.GMT_FORMAT
+        
+        if TimeZone.current.isDaylightSavingTime()
+        {
+            formattableDate = date.addingTimeInterval(-(8*60*60))
+        }
+        else
+        {
+            formattableDate = date.addingTimeInterval(-(10*60*60))
+        }
+        
+        return formattableDate.toFormat("hh:mm a")
+    }
+    
     static func getCurrentDateAsString() -> String
     {
         return (Date().toFormat(Constants.LONG_DATE_FORMAT))
@@ -160,5 +180,19 @@ class TimeAndDateUtils
         formatter.dateFormat = format
         
         return formatter.date(from: dateString)
+    }
+}
+
+extension Date
+{
+    func toFormat(_ format: String) -> String
+    {
+        // Create Date Formatter
+        let dateFormatter = DateFormatter()
+            
+        dateFormatter.dateFormat = format
+
+        // Convert date to string
+        return dateFormatter.string(from: self)
     }
 }

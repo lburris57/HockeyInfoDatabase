@@ -4,7 +4,6 @@
 //
 //  Created by Larry Burris on 2/6/22.
 //
-
 import SwiftUI
 
 struct LeagueTeamView: View

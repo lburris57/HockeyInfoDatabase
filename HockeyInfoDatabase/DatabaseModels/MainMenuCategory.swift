@@ -9,7 +9,7 @@ import RealmSwift
 
 class MainMenuCategory: Object
 {
-    @Persisted(primaryKey: true) var id: ObjectId
+    @Persisted(primaryKey: true) var id: ObjectId = ObjectId()
     @Persisted var category : String = Constants.EMPTY_STRING
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
 }

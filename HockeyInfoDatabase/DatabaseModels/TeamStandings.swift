@@ -22,5 +22,5 @@ class TeamStandings: Object
     @Persisted var points : Int = 0
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
     
-    @Persisted(originProperty: "standings") var parentTeam = NHLTeam?
+    @Persisted(originProperty: "standings") var parentTeam : LinkingObjects<NHLTeam>
 }

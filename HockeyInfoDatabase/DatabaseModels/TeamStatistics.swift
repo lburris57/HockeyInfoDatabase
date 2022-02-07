@@ -34,5 +34,5 @@ class TeamStatistics : Object
     @Persisted var faceoffPercent: Double = 0.0
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
     
-    @Persisted(originProperty: "statistics") var parentTeam = NHLTeam?
+    @Persisted(originProperty: "statistics") var parentTeam : LinkingObjects<NHLTeam>
 }

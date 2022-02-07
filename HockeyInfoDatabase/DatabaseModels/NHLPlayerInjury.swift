@@ -20,6 +20,6 @@ class NHLPlayerInjury : Object
     @Persisted var playingProbablity : String = Constants.EMPTY_STRING
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
     
-    @Persisted(originProperty: "playerInjuries") var parentPlayer = NHLPlayer?
-    @Persisted(originProperty: "playerInjuries") var parentTeam = NHLTeam?
+    @Persisted(originProperty: "playerInjuries") var parentPlayer : LinkingObjects<NHLPlayer>
+    @Persisted(originProperty: "playerInjuries") var parentTeam : LinkingObjects<NHLTeam>
 }

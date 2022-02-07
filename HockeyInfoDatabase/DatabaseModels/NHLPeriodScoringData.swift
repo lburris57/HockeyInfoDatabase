@@ -17,5 +17,5 @@ class NHLPeriodScoringData: Object
     @Persisted var playDescription: String = Constants.EMPTY_STRING
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
     
-    @Persisted(originProperty: "periodScoringList") var parentTeam = NHLScoringSummary?
+    @Persisted(originProperty: "periodScoringList") var parentScoringSummary : LinkingObjects<NHLScoringSummary>
 }
