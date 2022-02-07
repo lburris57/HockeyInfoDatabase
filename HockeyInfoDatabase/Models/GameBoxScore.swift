@@ -6,9 +6,10 @@
 //
 import Foundation
 
+import Foundation
+
 struct GameBoxScore: Codable
 {
-    /*
     struct Game: Codable
     {
         struct AwayTeam: Codable
@@ -37,54 +38,19 @@ struct GameBoxScore: Codable
             let lastName: String
         }
 
-        struct Weather: Codable
-        {
-            struct Wind: Codable
-            {
-                struct Speed: Codable
-                {
-                    let milesPerHour: Int
-                    let kilometersPerHour: Int
-                }
-
-                struct Direction: Codable
-                {
-                    let degrees: Int
-                    let label: String
-                }
-
-                let speed: Speed
-                let direction: Direction
-            }
-
-            struct Temperature: Codable
-            {
-                let fahrenheit: Int
-                let celsius: Int
-            }
-
-            let type: String
-            let description: String
-            let wind: Wind
-            let temperature: Temperature
-            let humidityPercent: Int
-        }
-
         let id: Int
         let startTime: Date
-        let endedTime: Any?
+        let endedTime: Date?
         let awayTeam: AwayTeam
         let homeTeam: HomeTeam
         let venue: Venue
         let venueAllegiance: String
         let scheduleStatus: String
-        let originalStartTime: Any?
-        let delayedOrPostponedReason: Any?
+        let originalStartTime: Date?
         let playedStatus: String
         let attendance: Int
         let officials: [Official]
         let broadcasters: [String]
-        let weather: Weather
     }
 
     struct Scoring: Codable
@@ -104,8 +70,8 @@ struct GameBoxScore: Codable
                 let scoreChange: Int
                 let awayScore: Int
                 let homeScore: Int
-                let awayShootoutScore: Any?
-                let homeShootoutScore: Any?
+                let awayShootoutScore: Int?
+                let homeShootoutScore: Int?
                 let playDescription: String
             }
 
@@ -115,9 +81,9 @@ struct GameBoxScore: Codable
             let scoringPlays: [ScoringPlay]
         }
 
-        let currentPeriod: Any?
-        let currentPeriodSecondsRemaining: Any?
-        let currentIntermission: Any?
+        let currentPeriod: Int?
+        let currentPeriodSecondsRemaining: Int?
+        let currentIntermission: Int?
         let awayScoreTotal: Int
         let homeScoreTotal: Int
         let periods: [Period]
@@ -574,23 +540,6 @@ struct GameBoxScore: Codable
                 let latitude: Double
                 let longitude: Double
             }
-
-            struct CapacitiesByEventType: Codable
-            {
-                let eventType: String
-                let capacity: Int
-            }
-
-            let id: Int
-            let name: String
-            let city: String
-            let country: String
-            let geoCoordinates: GeoCoordinate
-            let capacitiesByEventType: [CapacitiesByEventType]
-            let playingSurface: String
-            let baseballDimensions: [Any]
-            let hasRoof: Bool
-            let hasRetractableRoof: Bool
         }
 
         struct PlayerReference: Codable
@@ -634,8 +583,8 @@ struct GameBoxScore: Codable
             let birthCity: String
             let birthCountry: String
             let rookie: Bool
-            let highSchool: Any?
-            let college: Any?
+            let highSchool: String?
+            let college: String?
             let handedness: Handedness
             let officialImageSrc: URL?
             let socialMediaAccounts: [SocialMediaAccount]
@@ -671,5 +620,4 @@ struct GameBoxScore: Codable
     let scoring: Scoring
     let stats: Stat
     let references: Reference
-     */
 }

@@ -8,14 +8,14 @@ import Foundation
 
 struct DataConversionHelper
 {
-    static func convertSeasonToNHLScheduledGames(_ season: Season) -> [NHLScheduledGame]
+    static func convertSeasonToNHLScheduledGames(_ seasonalGames: SeasonalGames) -> [NHLScheduledGame]
     {
         var scheduledGames = [NHLScheduledGame]()
         
         let dateCreated = TimeAndDateUtils.getCurrentDateAsString()
-        let lastUpdated = TimeAndDateUtils.getDateAsString(season.lastUpdatedOn)
+        let lastUpdated = TimeAndDateUtils.getDateAsString(seasonalGames.lastUpdatedOn)
         
-        let games = season.games
+        let games = seasonalGames.games
         
         for game in games
         {
@@ -23,7 +23,7 @@ struct DataConversionHelper
             
             scheduledGame.dateCreated = dateCreated
             scheduledGame.lastUpdatedOn = lastUpdated
-            scheduledGame.id = game.schedule.id
+            scheduledGame.id = String(game.schedule.id)
             scheduledGame.date = TimeAndDateUtils.getDateAsString(game.schedule.startTime)
             scheduledGame.time = TimeAndDateUtils.getTimeFromDate(game.schedule.startTime)
             scheduledGame.homeTeam = game.schedule.homeTeam.abbreviation

@@ -1,12 +1,12 @@
 //
-//  Season.swift
+//  SeasonalGames.swift
 //  HockeyInfoDatabase
 //
 //  Created by Larry Burris on 1/15/22.
 //
 import Foundation
 
-struct Season: Codable
+struct SeasonalGames: Codable
 {
     let lastUpdatedOn: Date
     let games: [Game]

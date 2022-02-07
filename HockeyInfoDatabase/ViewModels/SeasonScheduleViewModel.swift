@@ -33,6 +33,8 @@ class SeasonScheduleViewModel: ObservableObject
     @MainActor
     func fetchDataFromWebService() async
     {
+        //  URL is https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/games.json
+        
         let apiService = APIService(urlString: Constants.REGULAR_SEASON_URL)
         
         isLoading.toggle()
@@ -46,7 +48,7 @@ class SeasonScheduleViewModel: ObservableObject
         do
         {
             //  The season object contains all of the scheduled games data
-            if let season = try await apiService.getJSON() as Season?
+            if let season = try await apiService.getJSON() as SeasonalGames?
             {
                 //  Convert the decoded JSON object into an NHLScheduledGame database object array
                 scheduledGames = DataConversionHelper.convertSeasonToNHLScheduledGames(season)
