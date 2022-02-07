@@ -9,7 +9,8 @@ import RealmSwift
 
 class TeamStandings: Object
 {
-    @Persisted(primaryKey: true) var id : Int = 0
+    @Persisted(primaryKey: true) var id : String = UUID().uuidString
+    @Persisted var teamId : Int = 0
     @Persisted var abbreviation : String = Constants.EMPTY_STRING
     @Persisted var conference : String = Constants.EMPTY_STRING
     @Persisted var conferenceRank : Int = 0

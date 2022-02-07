@@ -9,7 +9,8 @@ import RealmSwift
 
 class NHLTeam : Object
 {
-    @Persisted(primaryKey: true) var id : Int = 0
+    @Persisted(primaryKey: true) var id : String = UUID().uuidString
+    @Persisted var teamId : Int = 0
     @Persisted var abbreviation : String = Constants.EMPTY_STRING
     @Persisted var city : String = Constants.EMPTY_STRING
     @Persisted var name : String = Constants.EMPTY_STRING

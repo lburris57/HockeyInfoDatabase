@@ -9,7 +9,8 @@ import RealmSwift
 
 class NHLScheduledGame: Object
 {
-    @Persisted(primaryKey: true) var id : Int = 0
+    @Persisted(primaryKey: true) var id : String = UUID().uuidString
+    @Persisted var gameId : Int = 0
     @Persisted var date : String = Constants.EMPTY_STRING
     @Persisted var time : String = Constants.EMPTY_STRING
     @Persisted var homeTeam : String = Constants.EMPTY_STRING

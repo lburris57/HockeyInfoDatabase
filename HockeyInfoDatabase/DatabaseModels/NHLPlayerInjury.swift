@@ -9,8 +9,9 @@ import RealmSwift
 
 class NHLPlayerInjury : Object
 {
-    @Persisted(primaryKey: true) var id : Int = 0
+    @Persisted(primaryKey: true) var id : String = UUID().uuidString
     @Persisted var teamId : Int = 0
+    @Persisted var playerId : Int = 0
     @Persisted var teamAbbreviation : String = Constants.EMPTY_STRING
     @Persisted var firstName : String = Constants.EMPTY_STRING
     @Persisted var lastName : String = Constants.EMPTY_STRING

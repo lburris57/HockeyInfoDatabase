@@ -9,7 +9,8 @@ import RealmSwift
 
 class TeamStatistics : Object
 {
-    @Persisted(primaryKey: true) var id : Int = 0
+    @Persisted(primaryKey: true) var id : String = UUID().uuidString
+    @Persisted var teamId : Int = 0
     @Persisted var abbreviation : String = Constants.EMPTY_STRING
     @Persisted var gamesPlayed: Int = 0
     @Persisted var wins: Int = 0

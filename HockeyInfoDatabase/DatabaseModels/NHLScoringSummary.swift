@@ -9,7 +9,7 @@ import RealmSwift
 
 class NHLScoringSummary: Object
 {
-    @Persisted(primaryKey: true) var id : Int = 0
+    @Persisted(primaryKey: true) var id : String = UUID().uuidString
     @Persisted var gameId : Int = 0
     @Persisted var playedStatus : String = Constants.EMPTY_STRING
     @Persisted var homeTeamAbbreviation : String = Constants.EMPTY_STRING
