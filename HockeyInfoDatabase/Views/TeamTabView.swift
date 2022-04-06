@@ -38,5 +38,6 @@ struct TeamTabView_Previews: PreviewProvider
     static var previews: some View
     {
         TeamTabView()
+            .preferredColorScheme(.dark)
     }
 }

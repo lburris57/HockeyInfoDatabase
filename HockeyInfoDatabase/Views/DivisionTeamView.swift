@@ -74,6 +74,11 @@ struct TeamView_Previews: PreviewProvider
 {
     static var previews: some View
     {
-        DivisionTeamView()
+        Group {
+            DivisionTeamView()
+                .preferredColorScheme(.dark)
+            DivisionTeamView()
+            DivisionTeamView()
+        }
     }
 }

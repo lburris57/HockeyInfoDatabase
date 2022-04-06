@@ -1,12 +1,12 @@
 //
-//  ScheduledGame.swift
-//  HockeyInfoDatabase
+//  NHLScheduledGame.swift
+//  HockeyInfoCoreData
 //
 //  Created by Larry Burris on 1/20/22.
 //
 import Foundation
 
-struct ScheduledGame: Identifiable
+struct NHLScheduledGame: Identifiable
 {
     let id = UUID()
     var gameId: Int = 0

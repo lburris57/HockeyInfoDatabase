@@ -16,7 +16,7 @@ struct ContentView: View
             {
                 Log.info("Button was tapped!")
             }
-            //.buttonStyle(NeumorphicButtonStyle()).foregroundColor(.white).padding()
+            .buttonStyle(NeumorphicButtonStyle()).foregroundColor(.white).padding()
         }
     }
 }
