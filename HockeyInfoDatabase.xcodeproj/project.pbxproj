@@ -44,6 +44,7 @@
 		9157036F28679F9500864DCE /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157036E28679F9500864DCE /* Player.swift */; };
 		915703712867D23B00864DCE /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915703702867D23B00864DCE /* URLHelper.swift */; };
 		915703732867D7D400864DCE /* TYProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915703722867D7D400864DCE /* TYProgressBar.swift */; };
+		915703762867FB9900864DCE /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = 915703752867FB9900864DCE /* Neumorphic */; };
 		91B4523727AF836300FF43A6 /* HockeyInfoDatabaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4523627AF836300FF43A6 /* HockeyInfoDatabaseApp.swift */; };
 		91B4523E27AF836600FF43A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 91B4523D27AF836600FF43A6 /* Preview Assets.xcassets */; };
 		91B4525127AF840000FF43A6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B4525027AF840000FF43A6 /* Constants.swift */; };
@@ -195,6 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				915703762867FB9900864DCE /* Neumorphic in Frameworks */,
 				9132CD5A27F1596A00AC253A /* RealmSwift in Frameworks */,
 				9132CD5827F1596A00AC253A /* Realm in Frameworks */,
 				9157033D2866ACBB00864DCE /* SwiftDate in Frameworks */,
@@ -462,6 +464,7 @@
 				9132CD5727F1596A00AC253A /* Realm */,
 				9132CD5927F1596A00AC253A /* RealmSwift */,
 				9157033C2866ACBB00864DCE /* SwiftDate */,
+				915703752867FB9900864DCE /* Neumorphic */,
 			);
 			productName = HockeyInfoDatabase;
 			productReference = 91B4523327AF836300FF43A6 /* HockeyInfoDatabase.app */;
@@ -494,6 +497,7 @@
 			packageReferences = (
 				9132CD5627F1596A00AC253A /* XCRemoteSwiftPackageReference "realm-swift" */,
 				9157033B2866ACBB00864DCE /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				915703742867FB9800864DCE /* XCRemoteSwiftPackageReference "neumorphic" */,
 			);
 			productRefGroup = 91B4523427AF836300FF43A6 /* Products */;
 			projectDirPath = "";
@@ -826,6 +830,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		915703742867FB9800864DCE /* XCRemoteSwiftPackageReference "neumorphic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/costachung/neumorphic";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -843,6 +855,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9157033B2866ACBB00864DCE /* XCRemoteSwiftPackageReference "SwiftDate" */;
 			productName = SwiftDate;
+		};
+		915703752867FB9900864DCE /* Neumorphic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 915703742867FB9800864DCE /* XCRemoteSwiftPackageReference "neumorphic" */;
+			productName = Neumorphic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,6 +1,6 @@
 //
 //  TeamInformationView.swift
-//  HockeyInfoSwiftUI
+//  HockeyInfoDatabase
 //
 //  Created by Larry Burris on 6/25/19.
 //  Copyright © 2019 Larry Burris. All rights reserved.
