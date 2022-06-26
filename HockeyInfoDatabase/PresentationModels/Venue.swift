@@ -4,7 +4,6 @@
 //
 //  Created by Larry Burris on 1/15/22.
 //
-import Foundation
 import SwiftUI
 
 struct Venue : Identifiable

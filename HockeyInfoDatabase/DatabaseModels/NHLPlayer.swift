@@ -7,9 +7,9 @@
 import Foundation
 import RealmSwift
 
-class NHLPlayer : Object
+class NHLPlayer : Object, Identifiable
 {
-    @Persisted(primaryKey: true) var id : String = UUID().uuidString
+    @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var teamId : Int = 0
     @Persisted var playerId : Int = 0
     @Persisted var teamAbbreviation : String = Constants.EMPTY_STRING
@@ -26,9 +26,25 @@ class NHLPlayer : Object
     @Persisted var imageURL : String = Constants.EMPTY_STRING
     @Persisted var shoots : String = Constants.EMPTY_STRING
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
+    @Persisted var lastUpdated: String = Constants.EMPTY_STRING
     
-    @Persisted var playerStatisticsList = List<PlayerStatistics>()
+    @Persisted var playerStatistics = List<NHLPlayerStatistics>()
     @Persisted var playerInjuries = List<NHLPlayerInjury>()
     
     @Persisted(originProperty: "players") var parentTeam : LinkingObjects<NHLTeam>
+    
+    override init()
+    {
+        super.init()
+        
+        if dateCreated == Constants.EMPTY_STRING
+        {
+            dateCreated = TimeAndDateUtils.getCurrentDateAsString()
+        }
+        
+        if lastUpdated == Constants.EMPTY_STRING
+        {
+            lastUpdated = TimeAndDateUtils.getCurrentDateAsString()
+        }
+    } 
 }

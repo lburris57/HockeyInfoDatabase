@@ -1,5 +1,5 @@
 //
-//  PlayerStatistics.swift
+//  NHLPlayerStatistics.swift
 //  HockeyInfoDatabase
 //
 //  Created by Larry Burris on 1/15/22.
@@ -7,9 +7,9 @@
 import Foundation
 import RealmSwift
 
-class PlayerStatistics : Object
+class NHLPlayerStatistics : Object, Identifiable
 {
-    @Persisted(primaryKey: true) var id : String = UUID().uuidString
+    @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var playerId : Int = 0
     @Persisted var gamesPlayed: Int = 0
     @Persisted var goals: Int = 0
@@ -27,6 +27,7 @@ class PlayerStatistics : Object
     @Persisted var penalties: Int = 0
     @Persisted var penaltyMinutes: Int = 0
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
+    @Persisted var lastUpdated: String = Constants.EMPTY_STRING
     
     //  Skater Data
     @Persisted var plusMinus: Int = 0
@@ -55,4 +56,19 @@ class PlayerStatistics : Object
     @Persisted var minutesPlayed: Int = 0
     
     @Persisted(originProperty: "playerStatisticsList") var parentPlayer : LinkingObjects<NHLPlayer>
+    
+    override init()
+    {
+        super.init()
+        
+        if dateCreated == Constants.EMPTY_STRING
+        {
+            dateCreated = TimeAndDateUtils.getCurrentDateAsString()
+        }
+        
+        if lastUpdated == Constants.EMPTY_STRING
+        {
+            lastUpdated = TimeAndDateUtils.getCurrentDateAsString()
+        }
+    } 
 }

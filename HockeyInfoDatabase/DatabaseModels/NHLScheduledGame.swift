@@ -7,9 +7,9 @@
 import Foundation
 import RealmSwift
 
-class NHLScheduledGame: Object
+class NHLScheduledGame: Object, Identifiable
 {
-    @Persisted(primaryKey: true) var id : String = UUID().uuidString
+    @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var gameId : Int = 0
     @Persisted var date : String = Constants.EMPTY_STRING
     @Persisted var time : String = Constants.EMPTY_STRING
@@ -25,7 +25,7 @@ class NHLScheduledGame: Object
     @Persisted var currentTimeRemaining : Int = 0
     @Persisted var currentPeriod : Int = 0
     @Persisted var venue: String = Constants.EMPTY_STRING
-    @Persisted var lastUpdatedOn: String = Constants.EMPTY_STRING
+    @Persisted var lastUpdated: String = Constants.EMPTY_STRING
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
     
     @Persisted(originProperty: "schedules") var parentTeam : LinkingObjects<NHLTeam>
@@ -37,6 +37,11 @@ class NHLScheduledGame: Object
         if dateCreated == Constants.EMPTY_STRING
         {
             dateCreated = TimeAndDateUtils.getCurrentDateAsString()
+        }
+        
+        if lastUpdated == Constants.EMPTY_STRING
+        {
+            lastUpdated = TimeAndDateUtils.getCurrentDateAsString()
         }
     } 
 }

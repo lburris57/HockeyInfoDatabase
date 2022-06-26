@@ -51,7 +51,9 @@ struct NeumorphicButtonStyle_Previews: PreviewProvider
             Button("    Display Player Statistics    ")
             {
                 
-            }.buttonStyle(NeumorphicButtonStyle()).foregroundColor(.white).padding()
+            }
+            .buttonStyle(NeumorphicButtonStyle()).foregroundColor(.white).padding()
+            
         }
     }
 }

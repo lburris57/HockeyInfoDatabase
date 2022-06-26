@@ -7,9 +7,9 @@
 import Foundation
 import RealmSwift
 
-class MainMenuCategory: Object
+class MainMenuCategory: Object, Identifiable
 {
-    @Persisted(primaryKey: true) var id: Int = 0
+    @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var category : String = Constants.EMPTY_STRING
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
 }

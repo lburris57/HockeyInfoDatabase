@@ -9,6 +9,33 @@ import Foundation
 struct Constants
 {
     static let EMPTY_STRING = ""
+    static let ZERO: Int = 0
+    
+    //  Time constants
+    static let SECONDS_PER_DAY = 86400
+    static let DAYS_PER_MONTH = 30.333
+    
+    static let SYSTEM: String = "System"
+    
+    static let USER_NAME_KEY: String = "userName"
+    static let FILTER_TYPE_KEY: String = "filter"
+    static let SORT_ORDER_KEY: String = "sort"
+    
+    //  URLs
+    static let REGULAR_SEASON_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/games.json"  //  Decodes into SeasonalGames model
+    static let REGULAR_SEASON_STANDINGS_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/standings.json"  //  Decodes into SeasonStandings model
+    static let REGULAR_SEASON_GAME_BOX_SCORE_URL_PREFIX = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/games/" // Need to add "YYYYMMDD-awayTeamAbbreviation-homeTeamAbbreviation"
+    static let REGULAR_SEASON_GAME_BOX_SCORE_URL_SUFFIX = "/boxscore.json"  //  Decodes into GameBoxScore model
+    static let REGULAR_SEASON_GAMES_BY_DATE_URL_PREFIX = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/date/" // Need to add "YYYYMMDD"
+    static let REGULAR_SEASON_GAMES_BY_DATE_URL_SUFFIX = "/games.json"  //  Decodes into GameForDate model
+    static let REGULAR_SEASON_PLAYER_GAME_LOGS_BY_DATE_URL_PREFIX = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/date/" // Need to add "YYYYMMDD"
+    static let REGULAR_SEASON_PLAYER_GAME_LOGS_BY_DATE_URL_SUFFIX = "/player_gamelogs.json?team="  //  Need to add team abbreviation.  Decodes into PlayerGameLogsForDate model
+    static let REGULAR_SEASON_DAILY_TEAM_GAME_LOGS_URL_PREFIX = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/date/" // Need to add "YYYYMMDD"
+    static let REGULAR_SEASON_DAILY_TEAM_GAME_LOGS_URL_SUFFIX = "/team_gamelogs.json?team="  //  Need to add team abbreviation.  Decodes into DailyTeamGameLogs model
+    static let REGULAR_SEASON_INJURIES_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/injuries.json"  //  Decodes into PlayerInjuries model
+    static let REGULAR_SEASON_TEAM_STATS_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/team_stats_totals.json"  //  Decodes into SeasonalTeamStats model
+    static let REGULAR_SEASON_PLAYER_STATS_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/player_stats_totals.json"  //  Decodes into SeasonalPlayerStats model
+    static let REGULAR_SEASON_PLAYERS_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/players.json"  //  Decodes into SeasonalPlayers model
     
     //  TableNames
     static let MENU_CATEGORY_TABLE = "menuCategoryTable"
@@ -61,22 +88,6 @@ struct Constants
     static let USER_ID = "6faa8a21-d219-433a-914b-fcd2d4:MYSPORTSFEEDS"
     static let AUTHORIZATION_VALUE = "Basic "
     
-    //  URLs
-    static let REGULAR_SEASON_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/games.json"  //  Decodes into SeasonalGames model
-    static let REGULAR_SEASON_STANDINGS_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/standings.json"  //  Decodes into SeasonStandings model
-    static let REGULAR_SEASON_GAME_BOX_SCORE_URL_PREFIX = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/games/" // Need to add "YYYYMMDD-awayTeamAbbreviation-homeTeamAbbreviation"
-    static let REGULAR_SEASON_GAME_BOX_SCORE_URL_SUFFIX = "/boxscore.json"  //  Decodes into GameBoxScore model
-    static let REGULAR_SEASON_GAMES_BY_DATE_URL_PREFIX = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/date/" // Need to add "YYYYMMDD"
-    static let REGULAR_SEASON_GAMES_BY_DATE_URL_SUFFIX = "/games.json"  //  Decodes into GameForDate model
-    static let REGULAR_SEASON_PLAYER_GAME_LOGS_BY_DATE_URL_PREFIX = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/date/" // Need to add "YYYYMMDD"
-    static let REGULAR_SEASON_PLAYER_GAME_LOGS_BY_DATE_URL_SUFFIX = "/player_gamelogs.json?team="  //  Need to add team abbreviation.  Decodes into PlayerGameLogsForDate model
-    static let REGULAR_SEASON_DAILY_TEAM_GAME_LOGS_URL_PREFIX = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/date/" // Need to add "YYYYMMDD"
-    static let REGULAR_SEASON_DAILY_TEAM_GAME_LOGS_URL_SUFFIX = "/team_gamelogs.json?team="  //  Need to add team abbreviation.  Decodes into DailyTeamGameLogs model
-    static let REGULAR_SEASON_INJURIES_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/injuries.json"  //  Decodes into PlayerInjuries model
-    static let REGULAR_SEASON_TEAM_STATS_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/team_stats_totals.json"  //  Decodes into SeasonalTeamStats model
-    static let REGULAR_SEASON_PLAYER_STATS_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/player_stats_totals.json"  //  Decodes into SeasonalPlayerStats model
-    static let REGULAR_SEASON_PLAYERS_URL = "https://api.mysportsfeeds.com/v2.1/pull/nhl/players.json"  //  Decodes into SeasonalPlayers model
-    
     //  Time and date formats
     static let MONTH_FORMAT = "MM"
     static let YEAR_FORMAT = "yyyy"
@@ -84,6 +95,7 @@ struct Constants
     static let SHORT_DATE_FORMAT = "yyyyMMdd"
     static let LONG_DATE_FORMAT = "EEEE, MMM dd, yyyy"
     static let GMT_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z"
+    static let TIME_FORMAT = "hh:mm a"
     
     //  Season Strings
     static let S2007_2008 = "2007-2008"

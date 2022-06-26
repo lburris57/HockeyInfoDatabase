@@ -1,5 +1,5 @@
 //
-//  TeamStatistics.swift
+//  NHLTeamStatistics.swift
 //  HockeyInfoDatabase
 //
 //  Created by Larry Burris on 1/15/22.
@@ -7,9 +7,9 @@
 import Foundation
 import RealmSwift
 
-class TeamStatistics : Object
+class NHLTeamStatistics : Object, Identifiable
 {
-    @Persisted(primaryKey: true) var id : String = UUID().uuidString
+    @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var teamId : Int = 0
     @Persisted var abbreviation : String = Constants.EMPTY_STRING
     @Persisted var gamesPlayed: Int = 0
@@ -18,9 +18,9 @@ class TeamStatistics : Object
     @Persisted var overtimeWins: Int = 0
     @Persisted var overtimeLosses: Int = 0
     @Persisted var points: Int = 0
-    @Persisted var powerplays: Int = 0
-    @Persisted var powerplayGoals: Int = 0
-    @Persisted var powerplayPercent: Double = 0.0
+    @Persisted var powerPlays: Int = 0
+    @Persisted var powerPlayGoals: Int = 0
+    @Persisted var powerPlayPercent: Double = 0.0
     @Persisted var penaltyKills: Int = 0
     @Persisted var penaltyKillGoalsAllowed: Int = 0
     @Persisted var penaltyKillPercent: Double = 0.0
@@ -30,10 +30,27 @@ class TeamStatistics : Object
     @Persisted var penalties: Int = 0
     @Persisted var penaltyMinutes: Int = 0
     @Persisted var hits: Int = 0
-    @Persisted var faceoffWins: Int = 0
-    @Persisted var faceoffLosses: Int = 0
-    @Persisted var faceoffPercent: Double = 0.0
+    @Persisted var faceOffs: Int = 0
+    @Persisted var faceOffWins: Int = 0
+    @Persisted var faceOffLosses: Int = 0
+    @Persisted var faceOffPercent: Double = 0.0
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
+    @Persisted var lastUpdated: String = Constants.EMPTY_STRING
     
     @Persisted(originProperty: "statistics") var parentTeam : LinkingObjects<NHLTeam>
+    
+    override init()
+    {
+        super.init()
+        
+        if dateCreated == Constants.EMPTY_STRING
+        {
+            dateCreated = TimeAndDateUtils.getCurrentDateAsString()
+        }
+        
+        if lastUpdated == Constants.EMPTY_STRING
+        {
+            lastUpdated = TimeAndDateUtils.getCurrentDateAsString()
+        }
+    } 
 }

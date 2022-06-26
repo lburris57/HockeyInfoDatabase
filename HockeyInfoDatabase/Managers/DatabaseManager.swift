@@ -41,15 +41,15 @@ class DatabaseManager
         return player
     }
     
-    func retrievePlayerStatisticsById(_ playerId: Int) throws -> PlayerStatistics?
+    func retrievePlayerStatisticsById(_ playerId: Int) throws -> NHLPlayerStatistics?
     {
-        var playerStatistics: PlayerStatistics?
+        var playerStatistics: NHLPlayerStatistics?
         
         do
         {
             try realm.write
             {
-                playerStatistics = realm.objects(PlayerStatistics.self).filter("id ==\(playerId)").first
+                playerStatistics = realm.objects(NHLPlayerStatistics.self).filter("id ==\(playerId)").first
             }
         }
         catch
@@ -104,15 +104,15 @@ class DatabaseManager
         return gameLog
     }
     
-    func retrieveTeamStandings() throws -> [TeamStandings]
+    func retrieveTeamStandings() throws -> [NHLTeamStandings]
     {
-        var teamStandings = [TeamStandings]()
+        var teamStandings = [NHLTeamStandings]()
         
         do
         {
             try realm.write
             {
-                teamStandings = convertToArray(results: realm.objects(TeamStandings.self))
+                teamStandings = convertToArray(results: realm.objects(NHLTeamStandings.self))
             }
         }
         catch
@@ -403,15 +403,15 @@ class DatabaseManager
         return injuries
     }
     
-    func retrieveTeamStatisticsById(_ teamId: Int) throws -> TeamStatistics?
+    func retrieveTeamStatisticsById(_ teamId: Int) throws -> NHLTeamStatistics?
     {
-        var teamStatistics : TeamStatistics?
+        var teamStatistics : NHLTeamStatistics?
         
         do
         {
             try realm.write
             {
-                teamStatistics = realm.objects(TeamStatistics.self).filter("id = \(teamId)").first
+                teamStatistics = realm.objects(NHLTeamStatistics.self).filter("id = \(teamId)").first
             }
         }
         catch
@@ -500,7 +500,7 @@ class DatabaseManager
         {
             try realm.write
             {
-                if realm.objects(TeamStandings.self).count == 0
+                if realm.objects(NHLTeamStandings.self).count == 0
                 {
                     result = true
                 }
@@ -522,7 +522,7 @@ class DatabaseManager
         {
             try realm.write
             {
-                if realm.objects(PlayerStatistics.self).count == 0
+                if realm.objects(NHLPlayerStatistics.self).count == 0
                 {
                     result = true
                 }
@@ -693,7 +693,7 @@ class DatabaseManager
         Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
     
-    func saveStandings(_ standings: TeamStandings) throws
+    func saveStandings(_ standings: NHLTeamStandings) throws
     {
         do
         {
@@ -716,7 +716,7 @@ class DatabaseManager
         Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
     
-    func savePlayerStats(_ playerStatistics : [PlayerStatistics]) throws
+    func savePlayerStats(_ playerStatistics : [NHLPlayerStatistics]) throws
     {
         do
         {
@@ -824,7 +824,7 @@ class DatabaseManager
                 try realm.write
                 {
                     //  Get all players for that particular team
-                    let playerResults = realm.objects(NHLPlayer.self).filter("teamId ==\(team.id)")
+                    let playerResults = realm.objects(NHLPlayer.self).filter("teamId ==\(team._id)")
                     
                     for player in playerResults
                     {
@@ -858,12 +858,12 @@ class DatabaseManager
                 try realm.write
                 {
                     //  Get all standings for that particular team
-                    let standingsResults = realm.objects(TeamStandings.self).filter("abbreviation =='\(team.abbreviation)'")
+                    let standingsResults = realm.objects(NHLTeamStandings.self).filter("abbreviation =='\(team.abbreviation)'")
                     
                     for standings in standingsResults
                     {
                         //  Set the standings in the parent team
-                        team.standings.append(standings)
+                        team.standings = standings
                     }
                     
                     //  Save the team to the database
@@ -892,12 +892,13 @@ class DatabaseManager
                 try realm.write
                 {
                     //  Get all statistics for that particular team
-                    let statisticsResults = realm.objects(TeamStatistics.self).filter("abbreviation =='\(team.abbreviation)'")
+                    let statisticsResults = realm.objects(NHLTeamStatistics.self).filter("abbreviation =='\(team.abbreviation)'")
                     
                     for statistics in statisticsResults
                     {
                         //  Set the statistics in the parent team
-                        team.statistics.append(statistics)
+                        //team.statistics.append(statistics)
+                        team.statistics = statistics
                     }
                     
                     //  Save the team to the database
@@ -1024,7 +1025,7 @@ class DatabaseManager
         {
             try realm.write
             {
-                let teamStandings = realm.objects(TeamStandings.self)
+                let teamStandings = realm.objects(NHLTeamStandings.self)
                 
                 for teamStanding in teamStandings
                 {
@@ -1070,8 +1071,8 @@ class DatabaseManager
                 {
                     team.players.removeAll()
                     team.playerInjuries.removeAll()
-                    team.standings.removeAll()
-                    team.statistics.removeAll()
+                    team.standings = NHLTeamStandings()
+                    team.statistics = NHLTeamStatistics()
                     team.schedules.removeAll()
                     team.gameLogs.removeAll()
                     

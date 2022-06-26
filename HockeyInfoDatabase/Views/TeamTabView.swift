@@ -12,18 +12,18 @@ struct TeamTabView: View
     {
         TabView
         {
-            ConferenceTeamView()
-            .tabItem
-            {
-                Label("Conference", systemImage: "c.circle.fill")
-            }
-
             DivisionTeamView()
             .tabItem
             {
                 Label("Division", systemImage: "d.circle.fill")
             }
-
+            
+            ConferenceTeamView()
+            .tabItem
+            {
+                Label("Conference", systemImage: "c.circle.fill")
+            }
+            
             LeagueTeamView()
             .tabItem
             {

@@ -5,6 +5,7 @@
 //  Created by Larry Burris on 2/7/22.
 //
 import Foundation
+import RealmSwift
 
 struct DataConversionHelper
 {
@@ -22,8 +23,8 @@ struct DataConversionHelper
             let scheduledGame = NHLScheduledGame()
             
             scheduledGame.dateCreated = dateCreated
-            scheduledGame.lastUpdatedOn = lastUpdated
-            scheduledGame.id = String(game.schedule.id)
+            scheduledGame.lastUpdated = lastUpdated
+            scheduledGame.gameId = game.schedule.id
             scheduledGame.date = TimeAndDateUtils.getDateAsString(game.schedule.startTime)
             scheduledGame.time = TimeAndDateUtils.getTimeFromDate(game.schedule.startTime)
             scheduledGame.homeTeam = game.schedule.homeTeam.abbreviation
