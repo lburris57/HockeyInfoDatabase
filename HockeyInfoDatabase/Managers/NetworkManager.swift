@@ -25,7 +25,7 @@ class NetworkManager
         //  Verify the URL
         guard let url = URL(string: urlString) else
         {
-            throw APIError.invalidURL
+            throw NetworkError.invalidURL
         }
         
         do
@@ -42,8 +42,7 @@ class NetworkManager
             //  Verify that the response is valid and the status code 200
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else
             {
-                
-                throw APIError.invalidResponseStatus
+                throw NetworkError.invalidResponseStatus
             }
             
             let decoder = JSONDecoder()
@@ -60,12 +59,12 @@ class NetworkManager
             }
             catch
             {
-                throw APIError.decodingError(error.localizedDescription)
+                throw NetworkError.decodingError(error.localizedDescription)
             }
         }
         catch
         {
-            throw APIError.dataTaskError(error.localizedDescription)
+            throw NetworkError.dataTaskError(error.localizedDescription)
         }
     }
     
@@ -78,7 +77,9 @@ class NetworkManager
         var games = [SeasonalGames]()
         var playerInjuries = [PlayerInjuries]()
         
-        let teamTableInfo: TeamTableInfo = await withThrowingTaskGroup(of: TeamFetchResult.self) { group -> TeamTableInfo in
+        let teamTableInfo: TeamTableInfo = await withThrowingTaskGroup(of: TeamFetchResult.self)
+        {
+            group -> TeamTableInfo in
             
             //  Fetch teams
             group.addTask
@@ -209,7 +210,7 @@ class NetworkManager
         case boxScores([GameBoxScore])
     }
     
-    enum APIError: Error, LocalizedError
+    enum NetworkError: Error, LocalizedError
     {
         case invalidURL
         case invalidResponseStatus
@@ -224,11 +225,11 @@ class NetworkManager
                 case .invalidURL:
                     return NSLocalizedString("The endpoint URL is invalid", comment: "")
                 case .invalidResponseStatus:
-                    return NSLocalizedString("The API failed to issue a valid response.", comment: "")
+                    return NSLocalizedString("The network call failed to issue a valid response.", comment: "")
                 case let .dataTaskError(string):
                     return string
                 case .corruptData:
-                    return NSLocalizedString("The data provided appears to be corrupt", comment: "")
+                    return NSLocalizedString("The retrieved data appears to be corrupt", comment: "")
                 case let .decodingError(string):
                     return string
             }
