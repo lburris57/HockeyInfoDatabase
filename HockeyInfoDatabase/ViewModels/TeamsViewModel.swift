@@ -35,31 +35,27 @@ class TeamsViewModel: ObservableObject
     {
         //  URL is https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/team_stats_totals.json
         
-        let urlString = Constants.REGULAR_SEASON_TEAM_STATS_URL
+        //let urlString = Constants.REGULAR_SEASON_TEAM_STATS_URL
         
-        Log.info("URL String is: \(urlString)")
-        
-        let apiService = APIService(urlString: urlString)
-        
-        isLoading.toggle()
-        
-        //  Set the isLoading value to false after data is retrieved
-        defer
-        {
-            isLoading.toggle()
-        }
-        
-        do
-        {
-            //  The seasonalTeamStats object contains all of the team and team stats data
-            if let seasonalTeamStats = try await apiService.getJSON() as SeasonalTeamStats?
-            {
-                //  Convert the decoded JSON object into TeamEntity and Team arrays
-                //(nhlTeams, teams) = DataConversionHelper.convertSeasonalTeamStatsToTeamEntitiesAndTeams(seasonalTeamStats)
-                
-                //  Save the teamEntities to the database on a background thread
-                DispatchQueue.global(qos: .userInitiated).async
-                {
+//        isLoading.toggle()
+//
+//        //  Set the isLoading value to false after data is retrieved
+//        defer
+//        {
+//            isLoading.toggle()
+//        }
+//
+//        do
+//        {
+//            //  The seasonalTeamStats object contains all of the team and team stats data
+//            if let seasonalTeamStats = try await NetworkManager.getJSON(urlString: Constants.REGULAR_SEASON_TEAM_STATS_URL) as SeasonalTeamStats?
+//            {
+//                //  Convert the decoded JSON object into TeamEntity and Team arrays
+//                //(nhlTeams, teams) = DataConversionHelper.convertSeasonalTeamStatsToTeamEntitiesAndTeams(seasonalTeamStats)
+//
+//                //  Save the teamEntities to the database on a background thread
+//                DispatchQueue.global(qos: .userInitiated).async
+//                {
 //                    do
 //                    {
 //                        if self.viewContext.hasChanges
@@ -71,14 +67,14 @@ class TeamsViewModel: ObservableObject
 //                    {
 //                        Log.error("Error saving teams to the database: \(error.localizedDescription)")
 //                    }
-                }
-            }
-        }
-        catch
-        {
-            showAlert = true
-            errorMessage = error.localizedDescription
-        }
+//                }
+//            }
+//        }
+//        catch
+//        {
+//            showAlert = true
+//            errorMessage = error.localizedDescription
+//        }
     }
     
     //  Fetch the data from the database and update the scheduledGames and filteredGames arrays

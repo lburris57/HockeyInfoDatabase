@@ -28,6 +28,8 @@ class NHLScheduledGame: Object, Identifiable
     @Persisted var lastUpdated: String = Constants.EMPTY_STRING
     @Persisted var dateCreated: String = Constants.EMPTY_STRING
     
+    @Persisted var scoringSummary: NHLScoringSummary = NHLScoringSummary()
+    
     @Persisted(originProperty: "schedules") var parentTeam : LinkingObjects<NHLTeam>
     
     override init()

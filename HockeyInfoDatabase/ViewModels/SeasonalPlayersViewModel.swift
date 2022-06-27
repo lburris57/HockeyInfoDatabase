@@ -32,27 +32,25 @@ class SeasonalPlayersViewModel
     @MainActor
     func fetchDataFromWebService() async
     {
-        // URL is https://api.mysportsfeeds.com/v2.1/pull/nhl/players.json
-        
-        let apiService = APIService(urlString: Constants.REGULAR_SEASON_PLAYERS_URL)
-        
-        isLoading.toggle()
-        
-        defer
-        {
-            isLoading.toggle()
-        }
-        
-        do
-        {
-            if let seasonalPlayers = try await apiService.getJSON() as SeasonalPlayers?
-            {
-                //  Convert the decoded JSON object into PlayerEntity and Player arrays
-                //(nhlPlayers, players) = DataConversionHelper.convertSeasonalPlayersToPlayerEntitiesAndPlayers(seasonalPlayers)
-                
-                //  Save the playerEntities to the database on a background thread
-                DispatchQueue.global(qos: .userInitiated).async
-                {
+//        // URL is https://api.mysportsfeeds.com/v2.1/pull/nhl/players.json
+//
+//        isLoading.toggle()
+//
+//        defer
+//        {
+//            isLoading.toggle()
+//        }
+//
+//        do
+//        {
+//            if let seasonalPlayers = try await NetworkManager.getJSON(urlString: Constants.REGULAR_SEASON_PLAYERS_URL) as SeasonalPlayers?
+//            {
+//                //  Convert the decoded JSON object into PlayerEntity and Player arrays
+//                //(nhlPlayers, players) = DataConversionHelper.convertSeasonalPlayersToPlayerEntitiesAndPlayers(seasonalPlayers)
+//
+//                //  Save the playerEntities to the database on a background thread
+//                DispatchQueue.global(qos: .userInitiated).async
+//                {
 //                    do
 //                    {
 //                        if self.viewContext.hasChanges
@@ -64,15 +62,15 @@ class SeasonalPlayersViewModel
 //                    {
 //                        Log.error("Error saving seasonal players to the database: \(error.localizedDescription)")
 //                    }
-                }
-            }
-            
-        }
-        catch
-        {
-            showAlert = true
-            errorMessage = error.localizedDescription
-        }
+//                }
+//            }
+//
+//        }
+//        catch
+//        {
+//            showAlert = true
+//            errorMessage = error.localizedDescription
+//        }
         
     }
 }

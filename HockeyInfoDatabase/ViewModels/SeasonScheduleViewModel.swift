@@ -35,44 +35,44 @@ class SeasonScheduleViewModel: ObservableObject
     {
         //  URL is https://api.mysportsfeeds.com/v2.1/pull/nhl/2021-2022-regular/games.json
         
-        let apiService = APIService(urlString: Constants.REGULAR_SEASON_URL)
+        //let apiService = APIService(urlString: Constants.REGULAR_SEASON_URL)
         
-        isLoading.toggle()
-        
-        //  Set the isLoading value to false after data is retrieved
-        defer
-        {
-            isLoading.toggle()
-        }
-        
-        do
-        {
-            //  The season object contains all of the scheduled games data
-            if let season = try await apiService.getJSON() as SeasonalGames?
-            {
-                //  Convert the decoded JSON object into an NHLScheduledGame database object array
-                scheduledGames = DataConversionHelper.convertSeasonToNHLScheduledGames(season)
-                filterScheduledGamesBySelectedDate()
-                
-                //  Save the data to the database on a background thread
-                DispatchQueue.global(qos: .userInitiated).async
-                {
-                    do
-                    {
-                        try DatabaseManager().saveScheduledGames(self.scheduledGames)
-                    }
-                    catch
-                    {
-                        Log.error("Error saving scheduled games to the database: \(error.localizedDescription)")
-                    }
-                }
-            }
-        }
-        catch
-        {
-            showAlert = true
-            errorMessage = error.localizedDescription
-        }
+//        isLoading.toggle()
+//
+//        //  Set the isLoading value to false after data is retrieved
+//        defer
+//        {
+//            isLoading.toggle()
+//        }
+//        
+//        do
+//        {
+//            //  The season object contains all of the scheduled games data
+//            if let season = try await NetworkManager.getJSON(urlString: Constants.REGULAR_SEASON_URL) as SeasonalGames?
+//            {
+//                //  Convert the decoded JSON object into an NHLScheduledGame database object array
+//                scheduledGames = DataConversionHelper.convertSeasonToNHLScheduledGames(season)
+//                filterScheduledGamesBySelectedDate()
+//
+//                //  Save the data to the database on a background thread
+//                DispatchQueue.global(qos: .userInitiated).async
+//                {
+//                    do
+//                    {
+//                        try DatabaseManager().saveScheduledGames(self.scheduledGames)
+//                    }
+//                    catch
+//                    {
+//                        Log.error("Error saving scheduled games to the database: \(error.localizedDescription)")
+//                    }
+//                }
+//            }
+//        }
+//        catch
+//        {
+//            showAlert = true
+//            errorMessage = error.localizedDescription
+//        }
     }
     
     //  Fetch the data from the database and update the scheduledGames and filteredGames arrays

@@ -19,7 +19,13 @@ class DatabaseManager
     //  Create a new Realm database
     let realm = try! Realm()
     
-    // MARK: Retrieve Methods
+    // MARK: - Retrieve Methods
+    
+    ///  Returns a populated NHLPlayer object, if available
+    ///
+    /// - Parameter playerId: the id of the player
+    /// - Returns: NHLPlayer?
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrievePlayerById(_ playerId: Int) throws -> NHLPlayer?
     {
         var player: NHLPlayer?
@@ -41,6 +47,11 @@ class DatabaseManager
         return player
     }
     
+    ///  Returns a populated NHLPlayerStatistics object, if available
+    ///
+    /// - Parameter playerId: the id of the player
+    /// - Returns: NHLPlayerStatistics?
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrievePlayerStatisticsById(_ playerId: Int) throws -> NHLPlayerStatistics?
     {
         var playerStatistics: NHLPlayerStatistics?
@@ -62,6 +73,11 @@ class DatabaseManager
         return playerStatistics
     }
     
+    ///  Returns a populated NHLScoringSummary object, if available
+    ///
+    /// - Parameter gameId: the id of the game
+    /// - Returns: NHLScoringSummary?
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveScoringSummaryByGameId(_ gameId: Int) throws -> NHLScoringSummary?
     {
         var scoringSummary: NHLScoringSummary?
@@ -83,6 +99,11 @@ class DatabaseManager
         return scoringSummary
     }
     
+    ///  Returns a populated NHLGameLog object, if available
+    ///
+    /// - Parameter gameId: the id of the game
+    /// - Returns: NHLGameLog?
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveGameLogByGameId(_ gameId: Int) throws -> NHLGameLog?
     {
         var gameLog: NHLGameLog?
@@ -104,6 +125,10 @@ class DatabaseManager
         return gameLog
     }
     
+    ///  Returns a populated NHLTeamStandings array, if available.  Otherwise an empty array
+    ///
+    /// - Returns: [NHLTeamStandings]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveTeamStandings() throws -> [NHLTeamStandings]
     {
         var teamStandings = [NHLTeamStandings]()
@@ -125,6 +150,10 @@ class DatabaseManager
         return teamStandings
     }
     
+    ///  Returns a populated NHLScheduledGame array, if available.  Otherwise an empty array
+    ///
+    /// - Returns: [NHLScheduledGame]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveAllScheduledGames() throws -> [NHLScheduledGame]
     {
         var scheduledGames = [NHLScheduledGame]()
@@ -146,6 +175,10 @@ class DatabaseManager
         return scheduledGames
     }
     
+    ///  Returns a populated NHLTeam array, if available.  Otherwise an empty array
+    ///
+    /// - Returns: [NHLTeam]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveAllTeams() throws -> [NHLTeam]
     {
         var teams = [NHLTeam]()
@@ -167,6 +200,11 @@ class DatabaseManager
         return teams
     }
     
+    ///  Returns a populated NHLPlayer array, if available.  Otherwise an empty array
+    ///
+    /// - Parameter teamId: the id of the team
+    /// - Returns: [NHLPlayer]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrievePlayerRosterByTeamId(_ teamId: Int) throws -> [NHLPlayer]
     {
         var players = [NHLPlayer]()
@@ -188,6 +226,11 @@ class DatabaseManager
         return players
     }
     
+    ///  Returns a populated NHLTeam array, if available.  Otherwise an empty array
+    ///
+    /// - Parameter teamId: the id of the team
+    /// - Returns: [NHLTeam]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveTeamById(_ teamId: Int) throws -> NHLTeam?
     {
         var team: NHLTeam?
@@ -209,6 +252,10 @@ class DatabaseManager
         return team
     }
     
+    ///  Returns a populated NHLScheduledGame array using today's date, if available.  Otherwise an empty array
+    ///
+    /// - Returns: [NHLScheduledGame]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveTodaysGames() -> [NHLScheduledGame]
     {
         var scheduledGames = [NHLScheduledGame]()
@@ -228,6 +275,11 @@ class DatabaseManager
         return scheduledGames
     }
     
+    ///  Returns a populated NHLScheduledGame array, if available.  Otherwise an empty array
+    ///
+    /// - Parameter date: the requested date
+    /// - Returns: [NHLScheduledGame]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveScheduledGamesByDate(_ date: Date) -> [NHLScheduledGame]
     {
         var scheduledGameList = [NHLScheduledGame]()
@@ -266,6 +318,11 @@ class DatabaseManager
         return scheduledGameList
     }
     
+    ///  Returns a populated NHLScheduledGame array, if available.  Otherwise an empty array
+    ///
+    /// - Parameter date: the requested date as a string
+    /// - Returns: [NHLScheduledGame]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveScheduledGamesByDateString(_ date: String) -> [NHLScheduledGame]
     {
         var scheduledGameList = [NHLScheduledGame]()
@@ -302,6 +359,11 @@ class DatabaseManager
         return scheduledGameList
     }
     
+    ///  Returns a populated NHLScheduledGame array, if available.  Otherwise an empty array
+    ///
+    /// - Parameter date: the requested date
+    /// - Returns: [NHLScheduledGame]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveScoresAsNHLScheduledGames(_ date: Date) -> [NHLScheduledGame]
     {
         var scheduledGames = [NHLScheduledGame]()
@@ -323,6 +385,10 @@ class DatabaseManager
         return scheduledGames
     }
     
+    ///  Returns a populated NHLPlayer array, if available.  Otherwise an empty array
+    ///
+    /// - Returns: [NHLPlayer]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveAllPlayers() -> [NHLPlayer]
     {
         var players = [NHLPlayer]()
@@ -342,6 +408,11 @@ class DatabaseManager
         return players
     }
     
+    ///  Returns a populated NHLGameLog array, if available.  Otherwise an empty array
+    ///
+    /// - Parameter date: the requested date
+    /// - Returns: [NHLGameLog]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveGameLogsForDate(_ date: Date) -> [NHLGameLog]
     {
         var gameLogs = [NHLGameLog]()
@@ -363,6 +434,10 @@ class DatabaseManager
         return gameLogs
     }
     
+    ///  Returns a populated MainMenuCategory array, if available.  Otherwise an empty array
+    ///
+    /// - Returns: [MainMenuCategory]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveMainMenuCategories() -> [MainMenuCategory]
     {
         var categories = [MainMenuCategory]()
@@ -382,6 +457,11 @@ class DatabaseManager
         return categories
     }
     
+    ///  Returns a populated NHLPlayerInjury array, if available.  Otherwise an empty array
+    ///
+    /// - Parameter teamId: the id of the team
+    /// - Returns: [NHLPlayerInjury]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveInjuriesByTeamId(_ teamId: Int) throws -> [NHLPlayerInjury]
     {
         var injuries = [NHLPlayerInjury]()
@@ -403,6 +483,11 @@ class DatabaseManager
         return injuries
     }
     
+    ///  Returns a populated NHLTeamStatistics array, if available.  Otherwise an empty array
+    ///
+    /// - Parameter teamId: the id of the team
+    /// - Returns: [NHLTeamStatistics]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveTeamStatisticsById(_ teamId: Int) throws -> NHLTeamStatistics?
     {
         var teamStatistics : NHLTeamStatistics?
@@ -424,6 +509,11 @@ class DatabaseManager
         return teamStatistics
     }
     
+    ///  Returns a populated NHLScheduledGame array, if available.  Otherwise an empty array
+    ///
+    /// - Parameter teamId: the id of the team
+    /// - Returns: [NHLScheduledGame]
+    /// - Throws: DatabaseErrorEnum.readFromDatabase
     func retrieveScheduledGamesByTeamId(_ teamId: Int) throws -> [NHLScheduledGame]
     {
         var scheduledGames = [NHLScheduledGame]()
@@ -447,7 +537,7 @@ class DatabaseManager
         return scheduledGames
     }
     
-    // MARK: Requires saving methods
+    // MARK: - Requires saving methods
     func mainMenuCategoriesRequiresSaving() -> Bool
     {
         var result = false
@@ -580,7 +670,7 @@ class DatabaseManager
         return result
     }
     
-    // MARK: Save methods
+    // MARK: - Save methods
     func saveMainMenuCategories() throws
     {
         let categories = ["Season Schedule", "Team Information", "Standings", "Scores"]
@@ -785,7 +875,7 @@ class DatabaseManager
         Log.info("\(Realm.Configuration.defaultConfiguration.fileURL!)")
     }
     
-    // MARK: Link methods
+    // MARK: - Link methods
     func teamTableRequiresLinking() -> Bool
     {
         var result = false
@@ -1016,7 +1106,7 @@ class DatabaseManager
         }
     }
     
-    // MARK: Load/Reload methods
+    // MARK: - Load/Reload methods
     func loadTeamRecords() -> [String:String]
     {
         var records = [String:String]()
