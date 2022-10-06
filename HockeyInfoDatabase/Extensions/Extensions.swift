@@ -4,7 +4,7 @@
 //
 //  Created by Larry Burris on 1/15/22.
 //
-import Foundation
+import SwiftUI
 import UIKit
 
 extension UIColor
@@ -156,5 +156,20 @@ extension Int: Sequence
     public func makeIterator() -> CountableRange<Int>.Iterator
     {
         return (0..<self).makeIterator()
+    }
+}
+
+/// A  ripple animation.
+///
+/// - parameter index: The index of the view to ripple.
+/// - returns: A ripple animation.
+extension Animation
+{
+    public static func ripple(index: UInt) -> Self
+    {
+        return Self
+            .spring(dampingFraction: 0.5)
+            .speed(2)
+            .delay(0.03 * Double(index))
     }
 }
